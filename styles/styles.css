@@ -1,0 +1,153 @@
+/* === Variables de color === */
+:root {
+    --color-primario: #E8A87C;
+    /* Durazno cálido - header, títulos destacados */
+    --color-secundario: #6B4226;
+    /* Marrón chocolate - textos importantes, footer */
+    --color-acento: #A8D5BA;
+    /* Verde menta - detalles, hover, bordes */
+    --color-texto: #F5E9DD;
+    /* Crema claro - texto general, buen contraste sobre fondo oscuro */
+    --color-fondo: #3A2E28;
+    /* Marrón oscuro - fondo general del sitio */
+}
+
+/* === Estilos generales === */
+html {
+    background-color: var(--color-fondo);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* === Header === */
+header {
+    background-color: var(--color-primario);
+    padding: 20px;
+    text-align: center;
+}
+
+/* === Logo del header === */
+.header-brand img {
+    height: 200px;
+    width: auto;
+}
+
+header p {
+    color: var(--color-secundario);
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    text-align: center;
+}
+
+header nav li {
+    display: inline-block;
+    margin: 0 40px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-secundario);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--color-secundario);
+    padding-bottom: 6px;
+}
+
+
+/* === Contenido principal === */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* === Imágenes === */
+img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* === Tipografía de títulos y texto === */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--color-secundario);
+    margin: 0;
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* === Links dentro de títulos (clickeables) === */
+h2 a {
+    color: var(--color-acento);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+h2 a:hover {
+    text-decoration: underline;
+}
+
+h2 a::after {
+    content: " →";
+    font-size: 0.7em;
+}
+
+footer a {
+    color: var(--color-acento);
+    text-decoration: none;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+main ul {
+    list-style-position: inside;
+}
+
+/* === Links de contacto clickeables === */
+.contacto ul a {
+    color: var(--color-acento);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.contacto ul a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+}

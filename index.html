@@ -2,24 +2,23 @@
 <html lang="es">
 
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poppy Pastelería</title>
-    <style>
-        img {
-            max-width: 500px;
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
-    </style>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <header>
-        <p>Poppy Pastelería</p>
+        <div class="header-brand">
+            <img src="assets/img/logopoppy_transparent.png" alt="Logo Poppy Pastelería">
+            <p>Poppy Pastelería</p>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Inicio</a></li>
@@ -53,20 +52,22 @@
         </section>
 
         <section class="galeria">
-            <h2>Nuestros productos</h2>
-            <figure>
-                <img src="assets/img/index.jpg" alt="Galletitas artesanales para perros en forma de hueso">
-                <figcaption>Galletitas artesanales, hechas con ingredientes 100% seguros para tu mascota.</figcaption>
-            </figure>
+            <h2><a href="pages/productos.html">Nuestros productos</a></h2>
+            <article>
+                <figure>
+                    <a href="pages/productos.html">
+                        <img src="assets/img/index.jpg" alt="Galletitas artesanales para perros en forma de hueso">
+                    </a>
+                    <figcaption>Galletitas artesanales, hechas con ingredientes 100% seguros para tu mascota.
+                    </figcaption>
+                </figure>
+            </article>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Poppy Pastelería - Todos los derechos reservados.</p>
         <p>Seguinos en <a href="https://instagram.com/pasteleriacanina.nqn" target="_blank"
-                rel="noopener noreferrer">Instagram</a> y <a href="https://facebook.com/poppy_pasteleria"
-                target="_blank" rel="noopener noreferrer">Facebook</a></p>
+                rel="noopener noreferrer">Instagram</a> y escribinos por <a href="https://wa.me/5492996344849"
+                target="_blank" rel="noopener noreferrer">WhatsApp</a></p>
     </footer>
-</body>
-
-</html>
