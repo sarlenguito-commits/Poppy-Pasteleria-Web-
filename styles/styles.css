@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 /* === Variables de color === */
 :root {
     --color-primario: #E8A87C;
@@ -28,16 +33,25 @@ body {
 
 /* === Header === */
 header {
-    background-color: var(--color-primario);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
-    text-align: center;
+    background-color: var(--color-primario);
 }
 
 /* === Logo del header === */
+.header-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .header-brand img {
-    height: 200px;
+    height: 230px;
     width: auto;
 }
+
 
 header p {
     color: var(--color-secundario);
@@ -48,15 +62,9 @@ header p {
 }
 
 header nav ul {
+    display: flex;
+    gap: 20px;
     list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-    text-align: center;
-}
-
-header nav li {
-    display: inline-block;
-    margin: 0 40px;
 }
 
 header nav a {
@@ -74,13 +82,23 @@ header nav a {
 
 /* === Contenido principal === */
 main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     max-width: 800px;
     margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
+    padding: 20px;
 }
 
 /* === Imágenes === */
+.galeria article {
+    padding: 20px;
+}
+
+.contacto article {
+    padding: 20px;
+}
+
 img {
     max-width: 500px;
     width: 100%;
@@ -94,7 +112,7 @@ h1 {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 2.5rem;
-    color: var(--color-secundario);
+    color: var(--color-primario);
     margin: 0;
 }
 
@@ -123,13 +141,6 @@ h2 a::after {
 footer a {
     color: var(--color-acento);
     text-decoration: none;
-}
-
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 20px;
-    text-align: center;
 }
 
 main ul {
