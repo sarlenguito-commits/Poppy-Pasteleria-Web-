@@ -34,21 +34,24 @@ body {
 /* === Header === */
 header {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 15px;
     padding: 20px;
     background-color: var(--color-primario);
+    text-align: center;
 }
 
 /* === Logo del header === */
 .header-brand {
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
 }
 
 .header-brand img {
-    height: 230px;
+    height: 60px;
     width: auto;
 }
 
@@ -56,14 +59,16 @@ header {
 header p {
     color: var(--color-secundario);
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0;
 }
 
 header nav ul {
     display: flex;
-    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
     list-style: none;
 }
 
@@ -72,11 +77,11 @@ header nav a {
     color: var(--color-secundario);
     font-family: 'Playfair Display', serif;
     font-weight: 700;
-    font-size: 1.3rem;
-    letter-spacing: 2px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
     border-bottom: 2px solid var(--color-secundario);
-    padding-bottom: 6px;
+    padding-bottom: 4px;
 }
 
 
@@ -91,8 +96,31 @@ main {
 }
 
 /* === Imágenes === */
+/* === Grid - Sección Galería (index) === */
+.galeria {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "imagen";
+}
+
+.galeria h2 {
+    grid-area: titulo;
+}
+
 .galeria article {
+    grid-area: imagen;
     padding: 20px;
+}
+
+@media (min-width: 1024px) {
+    .galeria {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "titulo imagen";
+        align-items: center;
+    }
 }
 
 .contacto article {
@@ -105,6 +133,110 @@ img {
     height: auto;
     display: block;
     margin: 0 auto;
+}
+
+/* === Grid - Sección Servicios === */
+.servicios {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "texto"
+        "lista"
+        "imagen";
+}
+
+.servicios h1 {
+    grid-area: titulo;
+}
+
+.servicios>p {
+    grid-area: texto;
+}
+
+.servicios>ul {
+    grid-area: lista;
+}
+
+.servicios>article {
+    grid-area: imagen;
+}
+
+@media (min-width: 1024px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .header-brand {
+        flex-direction: row;
+    }
+
+    .header-brand img {
+        height: 230px;
+    }
+
+    header p {
+        font-size: 3rem;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+    header nav a {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        padding-bottom: 6px;
+    }
+
+    .servicios {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titulo titulo"
+            "texto texto"
+            "lista imagen";
+    }
+}
+
+/* === Grid - Sección Productos === */
+.lista-productos {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "texto"
+        "lista"
+        "imagen";
+}
+
+.lista-productos h1 {
+    grid-area: titulo;
+}
+
+.lista-productos>p {
+    grid-area: texto;
+}
+
+.lista-productos>ul {
+    grid-area: lista;
+}
+
+.lista-productos>article {
+    grid-area: imagen;
+}
+
+@media (min-width: 1024px) {
+    .lista-productos {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titulo titulo"
+            "texto texto"
+            "lista imagen";
+    }
 }
 
 /* === Tipografía de títulos y texto === */
