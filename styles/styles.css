@@ -28,6 +28,10 @@ body {
     padding: 0;
     font-family: 'Quicksand', sans-serif;
     background-color: var(--color-fondo);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23E8A87C' fill-opacity='0.05'%3E%3Cellipse cx='40' cy='50' rx='13' ry='10'/%3E%3Cellipse cx='23' cy='32' rx='6' ry='7'/%3E%3Cellipse cx='37' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='53' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='57' cy='32' rx='6' ry='7'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    background-attachment: fixed;
     color: var(--color-texto);
 }
 
@@ -39,6 +43,9 @@ header {
     gap: 15px;
     padding: 20px;
     background-color: var(--color-primario);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Cg fill='%236B4226' fill-opacity='0.08'%3E%3Crect x='28' y='30' width='14' height='10' rx='2'/%3E%3Ccircle cx='24' cy='27' r='6'/%3E%3Ccircle cx='24' cy='43' r='6'/%3E%3Ccircle cx='46' cy='27' r='6'/%3E%3Ccircle cx='46' cy='43' r='6'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 90px 90px;
     text-align: center;
 }
 
@@ -274,7 +281,7 @@ img {
     grid-area: texto;
 }
 
-.servicios>ul {
+.servicios>.servicios-grid {
     grid-area: lista;
 }
 
@@ -292,6 +299,34 @@ img {
     font-size: 0.9rem;
     text-align: center;
     color: var(--color-acento);
+}
+
+/* === Tarjetas de servicios (Bootstrap grid) === */
+.servicio-card {
+    height: 100%;
+    padding: 20px;
+    background-color: rgba(107, 66, 38, 0.4);
+    border: 1px solid var(--color-acento);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.servicio-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primario);
+}
+
+.servicio-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--color-primario);
+    margin-bottom: 8px;
+}
+
+.servicio-card p {
+    font-size: 0.9rem;
+    color: var(--color-texto);
 }
 
 /* === Grid - Sección Productos === */
