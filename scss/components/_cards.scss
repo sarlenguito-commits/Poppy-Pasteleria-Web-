@@ -1,0 +1,29 @@
+@use "../utilities/variables" as *;
+
+.servicio-card {
+    height: 100%;
+    padding: $espaciado;
+    background-color: $fondo-card;
+    border: 1px solid $color-acento;
+    border-radius: $radio-borde;
+    text-align: center;
+    transition: transform $transicion, border-color $transicion;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: $color-primario;
+    }
+
+    h2,
+    h3 {
+        font-family: $fuente-titulos;
+        font-size: 1.2rem;
+        color: $color-primario;
+        margin-bottom: 8px;
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: $color-texto;
+    }
+}

@@ -1,0 +1,161 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+.galeria {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "imagen";
+    text-align: center;
+
+    h2 {
+        grid-area: titulo;
+    }
+
+    article {
+        grid-area: imagen;
+        padding: $espaciado;
+
+        img {
+            @extend %imagen-con-sombra;
+
+            @include desktop {
+                max-width: 650px;
+            }
+        }
+    }
+
+    figcaption {
+        @extend %figcaption-estilo;
+    }
+}
+
+.contacto {
+    h1 {
+        font-size: 3.2rem;
+    }
+
+    ul {
+        font-size: 1.3rem;
+        line-height: 2;
+    }
+
+    article {
+        padding: $espaciado;
+
+        img {
+            @extend %imagen-con-sombra;
+        }
+    }
+
+    figcaption {
+        @extend %figcaption-estilo;
+    }
+}
+
+.quienes-somos {
+    article {
+        img {
+            @extend %imagen-con-sombra;
+        }
+    }
+
+    figcaption {
+        @extend %figcaption-estilo;
+    }
+}
+
+.servicios {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "texto"
+        "lista"
+        "imagen";
+
+    @include desktop {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "titulo titulo"
+            "texto texto"
+            "lista imagen";
+    }
+
+    h1 {
+        grid-area: titulo;
+    }
+
+    > p {
+        grid-area: texto;
+    }
+
+    > .servicios-grid {
+        grid-area: lista;
+    }
+
+    > article {
+        grid-area: imagen;
+
+        img {
+            @extend %imagen-con-sombra;
+        }
+    }
+
+    figcaption {
+        @extend %figcaption-estilo;
+    }
+}
+
+.lista-productos {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "titulo"
+        "texto"
+        "lista"
+        "imagen";
+
+    @include desktop {
+        grid-template-columns: 1fr 1.4fr;
+        grid-template-areas:
+            "titulo titulo"
+            "texto texto"
+            "lista imagen";
+        align-items: center;
+
+        .carousel-poppy {
+            max-width: 100%;
+        }
+    }
+
+    h1 {
+        grid-area: titulo;
+    }
+
+    > p {
+        grid-area: texto;
+    }
+
+    > ul {
+        grid-area: lista;
+        line-height: 1.8;
+
+        li::marker {
+            color: $color-acento;
+        }
+    }
+
+    > article {
+        grid-area: imagen;
+    }
+
+    figcaption {
+        @extend %figcaption-estilo;
+    }
+}

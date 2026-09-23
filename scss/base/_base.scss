@@ -1,0 +1,43 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: $color-fondo;
+}
+
+body {
+    min-height: 100vh;
+    font-family: $fuente-texto;
+    background-color: $color-fondo;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23E8A87C' fill-opacity='0.05'%3E%3Cellipse cx='40' cy='50' rx='13' ry='10'/%3E%3Cellipse cx='23' cy='32' rx='6' ry='7'/%3E%3Cellipse cx='37' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='53' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='57' cy='32' rx='6' ry='7'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 160px 160px;
+    background-attachment: fixed;
+    color: $color-texto;
+}
+
+main {
+    @include flex(column, $gap: $espaciado);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: $espaciado;
+
+    ul {
+        list-style-position: outside;
+        padding-left: 1.2rem;
+    }
+}
+
+img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

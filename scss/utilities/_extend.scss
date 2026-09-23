@@ -1,0 +1,34 @@
+// Placeholders (%): bloques de estilo fijos que se repiten.
+// Con @extend, el CSS se escribe una sola vez y se agrupan los selectores.
+@use "variables" as *;
+
+%imagen-con-sombra {
+    border-radius: $radio-borde;
+    box-shadow: $sombra-caja;
+}
+
+%figcaption-estilo {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    color: $color-acento;
+}
+
+%link-acento {
+    color: $color-acento;
+    text-decoration: none;
+    transition: color $transicion;
+
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        outline: 2px solid $color-acento;
+        outline-offset: 2px;
+    }
+
+    &:active {
+        color: $color-primario;
+    }
+}

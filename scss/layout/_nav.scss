@@ -1,0 +1,63 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+.navbar-poppy {
+    background-color: transparent;
+    padding: 0;
+    width: 100%;
+
+    .container-fluid {
+        padding: 0;
+    }
+
+    .navbar-toggler {
+        border-color: $color-secundario;
+        padding: 6px 10px;
+
+        &:focus {
+            box-shadow: 0 0 0 3px $color-acento;
+        }
+    }
+
+    .navbar-toggler-icon {
+        filter: invert(29%) sepia(24%) saturate(1200%) hue-rotate(345deg) brightness(0.9);
+    }
+
+    .navbar-nav {
+        gap: 10px;
+
+        @include desktop {
+            gap: $espaciado;
+        }
+    }
+
+    .nav-link {
+        color: $color-secundario;
+        font-family: $fuente-titulos;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 4px;
+        transition: color $transicion, border-color $transicion;
+
+        &:hover,
+        &:focus {
+            color: $color-acento;
+            border-color: $color-acento;
+        }
+
+        &:active,
+        &.active {
+            color: $color-fondo;
+            border-color: $color-secundario;
+        }
+
+        @include desktop {
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+            padding-bottom: 6px;
+        }
+    }
+}
