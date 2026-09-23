@@ -1,0 +1,18 @@
+// Mixins: bloques que reciben contenido o parámetros.
+// Los bloques fijos están en _extend.scss como placeholders.
+@use "variables" as *;
+
+// Flexbox con parámetros. Los que quedan en null no se escriben en el CSS.
+@mixin flex($direccion: row, $justify: null, $align: null, $gap: null) {
+    display: flex;
+    flex-direction: $direccion;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin desktop {
+    @media (min-width: $breakpoint-desktop) {
+        @content;
+    }
+}

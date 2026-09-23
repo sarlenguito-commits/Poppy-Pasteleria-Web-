@@ -1,0 +1,59 @@
+@use "../utilities/variables" as *;
+
+.destacados {
+    text-align: center;
+}
+
+.carousel-poppy {
+    max-width: 700px;
+    margin: 0 auto;
+
+    img {
+        max-width: none;
+        border-radius: $radio-borde;
+    }
+
+    .carousel-caption {
+        background-color: $overlay-caption;
+        border-radius: $radio-borde;
+        padding: 10px 20px;
+        transition: background-color $transicion;
+
+        h5 {
+            font-family: $fuente-titulos;
+            color: $color-primario;
+        }
+
+        p {
+            font-family: $fuente-texto;
+            color: $color-texto;
+        }
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        background-color: $color-secundario;
+        border-radius: 50%;
+        padding: 15px;
+        transition: background-color $transicion, transform $transicion;
+    }
+
+    .carousel-control-prev:hover .carousel-control-prev-icon,
+    .carousel-control-next:hover .carousel-control-next-icon,
+    .carousel-control-prev:focus .carousel-control-prev-icon,
+    .carousel-control-next:focus .carousel-control-next-icon {
+        background-color: $color-acento;
+        transform: scale(1.1);
+    }
+
+    .carousel-indicators {
+        button {
+            background-color: $color-secundario;
+            transition: background-color $transicion;
+
+            &.active {
+                background-color: $color-acento;
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+@use "../utilities/extend";
+
+h2 {
+    a {
+        @extend %link-acento;
+
+        &::after {
+            content: " →";
+            font-size: 0.7em;
+        }
+    }
+}
+
+.contacto {
+    ul {
+        a {
+            @extend %link-acento;
+        }
+    }
+}

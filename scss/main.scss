@@ -1,0 +1,26 @@
+// ============================================
+// main.scss — único punto de entrada
+// Orden: herramientas → globales → estructura → piezas
+// ============================================
+
+// 1. Utilities: herramientas (variables, mixins y placeholders).
+//    No generan CSS por sí solas: cada partial las importa con su propio @use
+//    (con @use cada archivo es un módulo aislado).
+@use "utilities/variables";
+@use "utilities/mixins";
+@use "utilities/extend";
+
+// 2. Base: reset y estilos globales de etiquetas
+@use "base/base";
+@use "base/tipografia";
+
+// 3. Layout: estructura del sitio
+@use "layout/header";
+@use "layout/nav";
+@use "layout/footer";
+
+// 4. Components: piezas repetibles
+@use "components/grids";
+@use "components/carousel";
+@use "components/cards";
+@use "components/links";
