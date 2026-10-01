@@ -45,9 +45,13 @@ header {
         width: auto;
         @include animar(aparecer-logo);
 
+        // El balanceo se suma a la animación de entrada en vez de reemplazarla.
+        // Si se reemplazara, al sacar el mouse la entrada se volvería a reproducir
+        // y el logo desaparecería y aparecería de nuevo.
         @media (prefers-reduced-motion: no-preference) {
             &:hover {
-                animation: balanceo 0.6s ease-in-out;
+                animation: aparecer-logo $duracion-animacion ease-out both,
+                    balanceo 0.6s ease-in-out;
             }
         }
     }
