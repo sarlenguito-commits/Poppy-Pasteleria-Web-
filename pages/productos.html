@@ -2,6 +2,9 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Poppy Pastelería</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -13,9 +16,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <!-- Nuestro CSS va después de Bootstrap para poder sobrescribirlo -->
     <link rel="stylesheet" href="../styles/style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productos - Poppy Pastelería</title>
 </head>
 
 <body>
@@ -55,54 +55,56 @@
                 <li>Snacks horneados sin conservantes</li>
             </ul>
             <article data-aos="fade-up" data-aos-delay="150">
-                <!-- Carousel de Bootstrap - reemplaza la figura única por una galería navegable -->
-                <div id="carouselProductos" class="carousel slide carousel-poppy" data-bs-ride="carousel">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="0"
-                            class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
+                <figure>
+                    <!-- Carousel de Bootstrap - reemplaza la figura única por una galería navegable -->
+                    <div id="carouselProductos" class="carousel slide carousel-poppy" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselProductos" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="../assets/img/productos1.png" class="d-block w-100"
+                                    alt="Galletitas artesanales para perros">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Galletitas artesanales</h2>
+                                    <p>Ingredientes 100% seguros para tu mascota.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../assets/img/productos2.png" class="d-block w-100"
+                                    alt="Cupcake artesanal para mascotas">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Tortas de cumpleaños</h2>
+                                    <p>Personalizadas según lo que tu mascota necesite.</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="../assets/img/productos3.png" class="d-block w-100"
+                                    alt="Perro disfrutando un snack artesanal">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Snacks para disfrutar</h2>
+                                    <p>El favorito de los peludos de la casa.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Siguiente</span>
+                        </button>
                     </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../assets/img/productos1.png" class="d-block w-100"
-                                alt="Galletitas artesanales para perros">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Galletitas artesanales</h5>
-                                <p>Ingredientes 100% seguros para tu mascota.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/productos2.png" class="d-block w-100"
-                                alt="Cupcake artesanal para mascotas">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Tortas de cumpleaños</h5>
-                                <p>Personalizadas según lo que tu mascota necesite.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../assets/img/productos3.png" class="d-block w-100"
-                                alt="Perro disfrutando un snack artesanal">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Snacks para disfrutar</h5>
-                                <p>El favorito de los peludos de la casa.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-                <figcaption>Una muestra de nuestra variedad de galletitas y snacks artesanales.</figcaption>
+                    <figcaption>Una muestra de nuestra variedad de galletitas y snacks artesanales.</figcaption>
+                </figure>
             </article>
         </section>
     </main>

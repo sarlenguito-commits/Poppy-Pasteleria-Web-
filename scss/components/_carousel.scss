@@ -19,8 +19,13 @@
         padding: 10px 20px;
         transition: background-color $transicion;
 
-        h5 {
+        // h3 en el index (la sección es un h2) y h2 en productos (va directo
+        // abajo del h1), para no saltear niveles de título.
+        // El tamaño es el mismo que tenía el h5 de Bootstrap.
+        h2,
+        h3 {
             font-family: $fuente-titulos;
+            font-size: 1.25rem;
             color: $color-primario;
         }
 
