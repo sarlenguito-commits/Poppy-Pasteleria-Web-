@@ -26,7 +26,7 @@
     .navbar-nav {
         gap: 10px;
 
-        @include desktop {
+        @include desde(desktop) {
             gap: $espaciado;
         }
     }
@@ -54,7 +54,7 @@
             border-color: $color-secundario;
         }
 
-        @include desktop {
+        @include desde(desktop) {
             font-size: 1.3rem;
             letter-spacing: 2px;
             padding-bottom: 6px;

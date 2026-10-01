@@ -60,6 +60,11 @@ main ul {
   list-style-position: outside;
   padding-left: 1.2rem;
 }
+@media (min-width: 768px) {
+  main {
+    padding: 30px;
+  }
+}
 
 img {
   max-width: 500px;
@@ -72,9 +77,14 @@ img {
 h1 {
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: #E8A87C;
   margin: 0;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
 }
 
 p {
@@ -83,6 +93,37 @@ p {
   font-weight: 400;
 }
 
+@keyframes aparecer-logo {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes aparecer-arriba {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes balanceo {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-6deg);
+  }
+  75% {
+    transform: rotate(6deg);
+  }
+}
 header {
   display: flex;
   flex-direction: column;
@@ -102,11 +143,15 @@ header p {
   font-weight: 700;
   margin: 0;
 }
+@media (min-width: 768px) {
+  header p {
+    font-size: 2.2rem;
+  }
+}
 @media (min-width: 1024px) {
   header {
-    flex-direction: row;
-    justify-content: space-between;
-    text-align: left;
+    gap: 10px;
+    padding: 20px 40px;
   }
   header p {
     font-size: 3rem;
@@ -122,13 +167,38 @@ header p {
 .header-brand img {
   height: 60px;
   width: auto;
+  animation: aparecer-logo 0.8s ease-out 0s both;
 }
-@media (min-width: 1024px) {
+@media (prefers-reduced-motion: reduce) {
+  .header-brand img {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .header-brand img:hover {
+    animation: balanceo 0.6s ease-in-out;
+  }
+}
+.header-brand p {
+  animation: aparecer-arriba 0.8s ease-out 0.3s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .header-brand p {
+    animation: none;
+  }
+}
+@media (min-width: 768px) {
   .header-brand {
     flex-direction: row;
+    gap: 20px;
   }
   .header-brand img {
-    height: 230px;
+    height: 120px;
+  }
+}
+@media (min-width: 1024px) {
+  .header-brand img {
+    height: 200px;
   }
 }
 
@@ -218,11 +288,21 @@ footer a {
   }
 }
 .contacto h1 {
-  font-size: 3.2rem;
+  font-size: 2.5rem;
+}
+@media (min-width: 768px) {
+  .contacto h1 {
+    font-size: 3.2rem;
+  }
 }
 .contacto ul {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   line-height: 2;
+}
+@media (min-width: 768px) {
+  .contacto ul {
+    font-size: 1.3rem;
+  }
 }
 .contacto article {
   padding: 20px;

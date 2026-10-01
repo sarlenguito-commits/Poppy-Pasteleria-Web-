@@ -22,7 +22,7 @@
         img {
             @extend %imagen-con-sombra;
 
-            @include desktop {
+            @include desde(desktop) {
                 max-width: 650px;
             }
         }
@@ -35,12 +35,20 @@
 
 .contacto {
     h1 {
-        font-size: 3.2rem;
+        font-size: 2.5rem;
+
+        @include desde(tablet) {
+            font-size: 3.2rem;
+        }
     }
 
     ul {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         line-height: 2;
+
+        @include desde(tablet) {
+            font-size: 1.3rem;
+        }
     }
 
     article {
@@ -78,7 +86,7 @@
         "lista"
         "imagen";
 
-    @include desktop {
+    @include desde(desktop) {
         grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "titulo titulo"
@@ -121,7 +129,7 @@
         "lista"
         "imagen";
 
-    @include desktop {
+    @include desde(desktop) {
         grid-template-columns: 1fr 1.4fr;
         grid-template-areas:
             "titulo titulo"

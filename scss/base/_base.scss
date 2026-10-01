@@ -32,6 +32,10 @@ main {
         list-style-position: outside;
         padding-left: 1.2rem;
     }
+
+    @include desde(tablet) {
+        padding: $espaciado * 1.5;
+    }
 }
 
 img {

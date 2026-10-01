@@ -1,11 +1,16 @@
 @use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
 
 h1 {
     font-family: $fuente-titulos;
     font-weight: 700;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: $color-primario;
     margin: 0;
+
+    @include desde(tablet) {
+        font-size: 2.5rem;
+    }
 }
 
 p {
