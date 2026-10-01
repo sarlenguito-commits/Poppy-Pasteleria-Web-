@@ -11,5 +11,13 @@ $sombra-caja: 0 4px 12px rgba(0, 0, 0, 0.35);
 $transicion: 0.2s ease;
 $overlay-caption: rgba(58, 46, 40, 0.7);
 $fondo-card: rgba(107, 66, 38, 0.4);
-$breakpoint-desktop: 1024px;
 $espaciado: 20px;
+
+// Breakpoints mobile-first: la base (sin media query) es mobile.
+$breakpoints: (
+    tablet: 768px,
+    desktop: 1024px
+);
+
+// Animaciones
+$duracion-animacion: 0.8s;

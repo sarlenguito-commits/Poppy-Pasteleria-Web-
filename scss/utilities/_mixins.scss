@@ -1,5 +1,6 @@
 // Mixins: bloques que reciben contenido o parámetros.
 // Los bloques fijos están en _extend.scss como placeholders.
+@use "sass:map";
 @use "variables" as *;
 
 // Flexbox con parámetros. Los que quedan en null no se escriben en el CSS.
@@ -11,8 +12,24 @@
     gap: $gap;
 }
 
-@mixin desktop {
-    @media (min-width: $breakpoint-desktop) {
+// Media query mobile-first a partir de un breakpoint del mapa $breakpoints.
+// Uso: @include desde(tablet) { ... } o @include desde(desktop) { ... }
+@mixin desde($nombre) {
+    @if not map.has-key($breakpoints, $nombre) {
+        @error "El breakpoint '#{$nombre}' no existe. Opciones: #{map.keys($breakpoints)}";
+    }
+
+    @media (min-width: map.get($breakpoints, $nombre)) {
         @content;
+    }
+}
+
+// Aplica una animación de base/_animaciones.scss con duración y retraso configurables.
+// Si la persona pidió reducir el movimiento en su sistema, no se anima.
+@mixin animar($nombre, $duracion: $duracion-animacion, $retraso: 0s) {
+    animation: $nombre $duracion ease-out $retraso both;
+
+    @media (prefers-reduced-motion: reduce) {
+        animation: none;
     }
 }
