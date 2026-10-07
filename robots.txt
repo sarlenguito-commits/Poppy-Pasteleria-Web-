@@ -1,0 +1,6 @@
+# Permite que todos los buscadores recorran el sitio
+User-agent: *
+Allow: /
+
+# Dónde está el mapa del sitio
+Sitemap: https://sarlenguito-commits.github.io/Poppy-Pasteleria-Web-/sitemap.xml
