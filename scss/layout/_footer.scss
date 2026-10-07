@@ -10,4 +10,14 @@ footer {
         color: $color-acento;
         text-decoration: none;
     }
+
+    // Datos del negocio. Bootstrap le pone margen abajo al <address>.
+    address {
+        @include flex(column, $align: center, $gap: 5px);
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
 }

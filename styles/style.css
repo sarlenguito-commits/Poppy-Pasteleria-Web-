@@ -87,6 +87,17 @@ h1 {
   }
 }
 
+h2 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
 p {
   font-family: "Quicksand", sans-serif;
   font-size: 1rem;
@@ -215,7 +226,7 @@ header p {
   padding: 6px 10px;
 }
 .navbar-poppy .navbar-toggler:focus {
-  box-shadow: 0 0 0 3px #A8D5BA;
+  box-shadow: 0 0 0 3px #3A2E28;
 }
 .navbar-poppy .navbar-toggler-icon {
   filter: invert(29%) sepia(24%) saturate(1200%) hue-rotate(345deg) brightness(0.9);
@@ -229,7 +240,7 @@ header p {
   }
 }
 .navbar-poppy .nav-link {
-  color: #6B4226;
+  color: #5C3921;
   font-family: "Playfair Display", serif;
   font-weight: 700;
   font-size: 0.85rem;
@@ -240,8 +251,8 @@ header p {
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 .navbar-poppy .nav-link:hover, .navbar-poppy .nav-link:focus {
-  color: #A8D5BA;
-  border-color: #A8D5BA;
+  color: #3A2E28;
+  border-color: #3A2E28;
 }
 .navbar-poppy .nav-link:active, .navbar-poppy .nav-link.active {
   color: #3A2E28;
@@ -266,6 +277,16 @@ footer {
 footer a {
   color: #A8D5BA;
   text-decoration: none;
+}
+footer address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+footer p {
+  margin: 0;
 }
 
 .galeria {
@@ -307,6 +328,13 @@ footer a {
 .contacto article {
   padding: 20px;
 }
+.contacto .preguntas-frecuentes dt {
+  color: #E8A87C;
+}
+.contacto .preguntas-frecuentes dd {
+  margin-bottom: 20px;
+}
+
 .servicios {
   display: grid;
   gap: 20px;
@@ -376,20 +404,26 @@ footer a {
   border-radius: 8px;
 }
 .carousel-poppy .carousel-caption {
+  left: 8%;
+  right: 8%;
+  bottom: 2.25rem;
   background-color: rgba(58, 46, 40, 0.7);
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 6px 14px;
   transition: background-color 0.2s ease;
 }
 .carousel-poppy .carousel-caption h2,
 .carousel-poppy .carousel-caption h3 {
   font-family: "Playfair Display", serif;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #E8A87C;
+  margin-bottom: 2px;
 }
 .carousel-poppy .carousel-caption p {
   font-family: "Quicksand", sans-serif;
+  font-size: 0.85rem;
   color: #F5E9DD;
+  margin-bottom: 0;
 }
 .carousel-poppy .carousel-control-prev-icon,
 .carousel-poppy .carousel-control-next-icon {

@@ -13,25 +13,34 @@
         border-radius: $radio-borde;
     }
 
+    // Recuadro chico para no tapar la foto (antes ocupaba el 41% del alto en
+    // productos). Más ancho que el de Bootstrap (15% libre a cada lado) para que
+    // el texto entre en menos renglones, y apenas arriba de los indicadores.
     .carousel-caption {
+        left: 8%;
+        right: 8%;
+        bottom: 2.25rem;
         background-color: $overlay-caption;
         border-radius: $radio-borde;
-        padding: 10px 20px;
+        padding: 6px 14px;
         transition: background-color $transicion;
 
         // h3 en el index (la sección es un h2) y h2 en productos (va directo
         // abajo del h1), para no saltear niveles de título.
-        // El tamaño es el mismo que tenía el h5 de Bootstrap.
         h2,
         h3 {
             font-family: $fuente-titulos;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: $color-primario;
+            margin-bottom: 2px;
         }
 
+        // Bootstrap le pone 1rem de margen abajo a cada <p>
         p {
             font-family: $fuente-texto;
+            font-size: 0.85rem;
             color: $color-texto;
+            margin-bottom: 0;
         }
     }
 

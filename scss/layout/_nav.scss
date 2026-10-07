@@ -14,8 +14,9 @@
         border-color: $color-secundario;
         padding: 6px 10px;
 
+        // Fondo oscuro: el verde acento casi no se veía sobre el durazno
         &:focus {
-            box-shadow: 0 0 0 3px $color-acento;
+            box-shadow: 0 0 0 3px $color-fondo;
         }
     }
 
@@ -32,7 +33,7 @@
     }
 
     .nav-link {
-        color: $color-secundario;
+        color: $color-menu;
         font-family: $fuente-titulos;
         font-weight: 700;
         font-size: 0.85rem;
@@ -42,10 +43,12 @@
         padding-bottom: 4px;
         transition: color $transicion, border-color $transicion;
 
+        // Antes era el verde acento: sobre el durazno daba 1,25:1 y no se leía.
+        // El marrón del fondo da 6,45:1.
         &:hover,
         &:focus {
-            color: $color-acento;
-            border-color: $color-acento;
+            color: $color-fondo;
+            border-color: $color-fondo;
         }
 
         &:active,

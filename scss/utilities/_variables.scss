@@ -4,6 +4,10 @@ $color-acento: #A8D5BA;
 $color-texto: #F5E9DD;
 $color-fondo: #3A2E28;
 
+// Accesibilidad: el secundario sobre el header durazno da 4,24:1 y el mínimo
+// para texto chico es 4,5:1. Este es el secundario un 4% más oscuro: da 5:1.
+$color-menu: #5C3921;
+
 $fuente-titulos: 'Playfair Display', serif;
 $fuente-texto: 'Quicksand', sans-serif;
 $radio-borde: 8px;

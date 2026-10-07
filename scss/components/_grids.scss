@@ -62,6 +62,17 @@
     figcaption {
         @extend %figcaption-estilo;
     }
+
+    // Preguntas frecuentes: <dt> es la pregunta y <dd> la respuesta
+    .preguntas-frecuentes {
+        dt {
+            color: $color-primario;
+        }
+
+        dd {
+            margin-bottom: $espaciado;
+        }
+    }
 }
 
 .quienes-somos {
