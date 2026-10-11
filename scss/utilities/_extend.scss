@@ -2,33 +2,62 @@
 // Con @extend, el CSS se escribe una sola vez y se agrupan los selectores.
 @use "variables" as *;
 
-%imagen-con-sombra {
+// Foto con esquinas redondeadas y sombra suave
+%imagen-redondeada {
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    object-fit: cover;
     border-radius: $radio-borde;
-    box-shadow: $sombra-caja;
+    box-shadow: $sombra-suave;
 }
 
-%figcaption-estilo {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    text-align: center;
-    color: $color-acento;
+// Texto chico arriba de los títulos ("Pastelería canina y felina")
+%etiqueta {
+    display: inline-block;
+    font-family: $fuente-titulos;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: $color-verde;
+    margin-bottom: 8px;
 }
 
+// Links verdes con subrayado al pasar el mouse
 %link-acento {
-    color: $color-acento;
+    color: $color-verde;
+    font-weight: 700;
     text-decoration: none;
     transition: color $transicion;
 
     &:hover {
         text-decoration: underline;
-    }
-
-    &:focus {
-        outline: 2px solid $color-acento;
-        outline-offset: 2px;
+        text-underline-offset: 4px;
     }
 
     &:active {
-        color: $color-primario;
+        color: $color-petroleo;
     }
+}
+
+// Lista sin viñetas ni sangría
+%lista-limpia {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+// Círculo verde claro con un ícono adentro
+%circulo-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: $color-verde-claro;
+    color: $color-verde;
+    font-size: 1.5rem;
+    flex-shrink: 0;
 }

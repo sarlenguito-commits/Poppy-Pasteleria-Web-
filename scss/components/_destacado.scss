@@ -1,0 +1,118 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+// Bloque foto + texto. En desktop van lado a lado; con --invertido la foto pasa a la derecha.
+.destacado {
+    display: grid;
+    gap: $espaciado * 2;
+    align-items: center;
+
+    @include desde(desktop) {
+        grid-template-columns: 1fr 1fr;
+        gap: $espaciado * 4;
+
+        &--invertido .destacado-fotos {
+            order: 2;
+        }
+    }
+
+    // Separación entre bloques seguidos (productos)
+    & + & {
+        margin-top: $espacio-seccion;
+
+        @include desde(desktop) {
+            margin-top: $espacio-seccion-desktop;
+        }
+    }
+
+    span {
+        @extend %etiqueta;
+    }
+}
+
+// Una foto sola o dos superpuestas (la segunda más chica, corrida hacia abajo)
+.destacado-fotos {
+    position: relative;
+    max-width: 460px;
+    width: 100%;
+    margin: 0 auto;
+
+    img {
+        @extend %imagen-redondeada;
+        aspect-ratio: 4 / 5;
+    }
+
+    img + img {
+        position: absolute;
+        width: 46%;
+        height: auto;
+        // En mobile queda adentro del ancho (si asoma, aparece scroll horizontal);
+        // desde tablet hay lugar para que se corra un poco hacia afuera.
+        right: 8px;
+        bottom: -28px;
+        border: 6px solid $color-blanco;
+        box-shadow: $sombra-elevada;
+        transform: rotate(4deg);
+
+        @include desde(tablet) {
+            right: -12px;
+        }
+    }
+}
+
+// Lista con tilde verde: lo que incluye cada producto o servicio
+.lista-check {
+    @extend %lista-limpia;
+    @include flex(column, $gap: 10px);
+    margin: $espaciado 0 $espaciado * 1.5;
+
+    li {
+        position: relative;
+        padding-left: 34px;
+        color: $color-petroleo;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background-color: $color-verde-claro;
+            // Tilde dibujada en SVG
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' stroke='%233F6B2A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E");
+            background-size: 70%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+// Accesos rápidos a cada categoría (links internos con #)
+.chips {
+    @extend %lista-limpia;
+    @include flex(row, $justify: center, $gap: 10px);
+    flex-wrap: wrap;
+    margin-top: $espaciado * 1.5;
+
+    a {
+        display: inline-block;
+        padding: 8px 18px;
+        border-radius: $radio-pildora;
+        background-color: $color-blanco;
+        border: 2px solid $color-petroleo;
+        color: $color-petroleo;
+        font-family: $fuente-titulos;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color $transicion, color $transicion;
+
+        &:hover,
+        &:focus-visible {
+            background-color: $color-petroleo;
+            color: $color-crema;
+        }
+    }
+}

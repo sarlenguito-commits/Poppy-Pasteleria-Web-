@@ -1,0 +1,40 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+// "Cómo pedir" en 3 pasos. El número lo pone CSS con un contador,
+// así si se agrega o se saca un paso, la numeración se acomoda sola.
+.pasos {
+    @extend %lista-limpia;
+    @include grilla($tablet: 3, $desktop: 3);
+    counter-reset: paso;
+
+    li {
+        @include tarjeta($padding: $espaciado * 1.5);
+        position: relative;
+        counter-increment: paso;
+        text-align: center;
+
+        &::before {
+            content: counter(paso);
+            @include flex(row, $justify: center, $align: center);
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            background-color: $color-petroleo;
+            color: $color-amarillo;
+            font-family: $fuente-titulos;
+            font-weight: 700;
+            font-size: 1.4rem;
+        }
+    }
+
+    h3 {
+        font-size: 1.15rem;
+    }
+
+    p {
+        font-size: 0.96rem;
+    }
+}

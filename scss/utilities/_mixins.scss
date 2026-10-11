@@ -1,6 +1,7 @@
 // Mixins: bloques que reciben contenido o parámetros.
 // Los bloques fijos están en _extend.scss como placeholders.
 @use "sass:map";
+@use "sass:color";
 @use "variables" as *;
 
 // Flexbox con parámetros. Los que quedan en null no se escriben en el CSS.
@@ -26,10 +27,54 @@
 
 // Aplica una animación de base/_animaciones.scss con duración y retraso configurables.
 // Si la persona pidió reducir el movimiento en su sistema, no se anima.
-@mixin animar($nombre, $duracion: $duracion-animacion, $retraso: 0s) {
-    animation: $nombre $duracion ease-out $retraso both;
+@mixin animar($nombre, $duracion: $duracion-animacion, $retraso: 0s, $repetir: 1) {
+    animation: $nombre $duracion ease-out $retraso $repetir both;
 
     @media (prefers-reduced-motion: reduce) {
         animation: none;
+    }
+}
+
+// Botón con forma de píldora. Recibe el fondo, el texto y el borde;
+// el hover oscurece el fondo un 12% (si es transparente, se rellena con el borde).
+@mixin boton($fondo, $texto, $borde: $fondo) {
+    background-color: $fondo;
+    color: $texto;
+    border: 2px solid $borde;
+
+    &:hover,
+    &:focus-visible {
+        @if $fondo == transparent {
+            background-color: $borde;
+            color: $color-blanco;
+        } @else {
+            background-color: color.scale($fondo, $lightness: -12%);
+            border-color: color.scale($borde, $lightness: -12%);
+            color: $texto;
+        }
+    }
+}
+
+// Tarjeta blanca con borde y sombra suave. El padding y el radio son configurables.
+@mixin tarjeta($padding: $espaciado, $radio: $radio-borde) {
+    background-color: $color-blanco;
+    border: 1px solid $color-borde;
+    border-radius: $radio;
+    box-shadow: $sombra-suave;
+    padding: $padding;
+}
+
+// Grilla que se adapta: mobile en 1 columna, tablet en $tablet y desktop en $desktop.
+@mixin grilla($tablet: 2, $desktop: 3, $gap: $espaciado * 1.5) {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: 1fr;
+
+    @include desde(tablet) {
+        grid-template-columns: repeat($tablet, 1fr);
+    }
+
+    @include desde(desktop) {
+        grid-template-columns: repeat($desktop, 1fr);
     }
 }

@@ -1,0 +1,97 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+// Cada bloque de la página es una .seccion con su .container de Bootstrap adentro
+.seccion {
+    padding: $espacio-seccion 0;
+
+    @include desde(desktop) {
+        padding: $espacio-seccion-desktop 0;
+    }
+
+    // Variante amarilla, como la acuarela del logo
+    &--amarilla {
+        background-color: $color-amarillo;
+    }
+
+    // Variante con menos aire arriba (para la que sigue a la portada)
+    &--pegada {
+        padding-top: $espaciado * 2;
+    }
+}
+
+// Título centrado de cada sección: etiqueta + h2 + bajada
+.encabezado-seccion {
+    max-width: $ancho-texto;
+    margin: 0 auto $espaciado * 2;
+    text-align: center;
+
+    span {
+        @extend %etiqueta;
+    }
+
+    // Variante alineada a la izquierda, para los bloques con foto al costado
+    &--izquierda {
+        margin-left: 0;
+        text-align: left;
+    }
+}
+
+// Portada chica de las páginas internas (Productos, Servicios, etc.)
+.page-hero {
+    position: relative;
+    padding: $espacio-seccion 0;
+    background-color: $color-amarillo;
+    border-radius: 0 0 $radio-grande $radio-grande;
+    text-align: center;
+    overflow: hidden;
+
+    .container {
+        position: relative;
+        max-width: 760px;
+    }
+
+    span {
+        @extend %etiqueta;
+    }
+
+    h1 {
+        @include animar(aparecer-arriba);
+    }
+
+    p {
+        font-size: 1.15rem;
+        color: $color-petroleo;
+        @include animar(aparecer-arriba, $retraso: 0.15s);
+    }
+
+    // Huellitas decorativas en las esquinas (dibujo SVG, sin imagen extra)
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cg fill='%2380A858' fill-opacity='0.35'%3E%3Cellipse cx='40' cy='50' rx='13' ry='10'/%3E%3Cellipse cx='23' cy='32' rx='6' ry='7'/%3E%3Cellipse cx='37' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='53' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='57' cy='32' rx='6' ry='7'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+
+    &::before {
+        top: 10px;
+        left: -30px;
+        transform: rotate(-20deg);
+    }
+
+    &::after {
+        bottom: -20px;
+        right: -20px;
+        transform: rotate(25deg);
+    }
+
+    @include desde(desktop) {
+        padding: $espacio-seccion-desktop 0;
+    }
+}

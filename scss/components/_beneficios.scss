@@ -1,0 +1,34 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+// Franja de beneficios: ícono + título corto + una línea
+.beneficios {
+    @extend %lista-limpia;
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: 1fr 1fr;
+
+    @include desde(desktop) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    li {
+        @include tarjeta($padding: $espaciado);
+        @include flex(column, $align: center, $gap: 10px);
+        text-align: center;
+    }
+
+    .bi {
+        @extend %circulo-icono;
+    }
+
+    h3 {
+        font-size: 1.05rem;
+        margin: 0;
+    }
+
+    p {
+        font-size: 0.92rem;
+    }
+}

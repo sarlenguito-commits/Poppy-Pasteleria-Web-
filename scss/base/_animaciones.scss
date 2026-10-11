@@ -1,7 +1,7 @@
 // Animaciones nativas con @keyframes.
 // Se aplican con el mixin animar() de utilities/_mixins.scss.
 
-// El logo del header aparece creciendo al cargar la página.
+// El logo del menú aparece creciendo al cargar la página.
 @keyframes aparecer-logo {
     from {
         opacity: 0;
@@ -14,11 +14,11 @@
     }
 }
 
-// Entrada suave de abajo hacia arriba (nombre del header).
+// Entrada suave de abajo hacia arriba (textos de la portada).
 @keyframes aparecer-arriba {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
 
     to {
@@ -43,3 +43,14 @@
     }
 }
 
+// Sube y baja despacio: las etiquetas que flotan sobre la foto de la portada.
+@keyframes flotar {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

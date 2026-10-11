@@ -1,21 +1,48 @@
-$color-primario: #E8A87C;
-$color-secundario: #6B4226;
-$color-acento: #A8D5BA;
-$color-texto: #F5E9DD;
-$color-fondo: #3A2E28;
+// ============================================
+// Variables: la identidad de Poppy sale del logo
+// (azul petróleo de la palabra POPPY, verde de la hojita y amarillo acuarela)
+// ============================================
 
-// Accesibilidad: el secundario sobre el header durazno da 4,24:1 y el mínimo
-// para texto chico es 4,5:1. Este es el secundario un 4% más oscuro: da 5:1.
-$color-menu: #5C3921;
+// Colores de marca
+$color-petroleo: #213943;        // texto y títulos (11,7:1 sobre el crema)
+$color-petroleo-suave: #4B6169;  // texto secundario (6,3:1 sobre el crema)
+$color-verde-hoja: #80A858;      // solo decoración: como texto no llega al contraste mínimo
+$color-verde: #3F6B2A;           // botones y links (texto blanco encima: 6,3:1)
+$color-verde-claro: #EAF2DF;     // fondos de íconos y estados activos
+$color-amarillo: #FFF3A0;        // bloques destacados, como la acuarela del logo
+$color-amarillo-fuerte: #F7D74A; // detalles chicos (estrellas, subrayados)
+$color-crema: #FFFBEF;           // fondo general
+$color-blanco: #FFFFFF;
 
-$fuente-titulos: 'Playfair Display', serif;
+// Usos (así cada partial habla de "fondo" o "texto" y no de un color puntual)
+$color-fondo: $color-crema;
+$color-texto: $color-petroleo;
+$color-texto-suave: $color-petroleo-suave;
+$color-borde: rgba(33, 57, 67, 0.12);
+
+// Tipografías
+$fuente-titulos: 'Fredoka', sans-serif;
 $fuente-texto: 'Quicksand', sans-serif;
-$radio-borde: 8px;
-$sombra-caja: 0 4px 12px rgba(0, 0, 0, 0.35);
-$transicion: 0.2s ease;
-$overlay-caption: rgba(58, 46, 40, 0.7);
-$fondo-card: rgba(107, 66, 38, 0.4);
+
+// Formas
+$radio-chico: 12px;
+$radio-borde: 20px;
+$radio-grande: 32px;
+$radio-pildora: 999px;
+
+// Sombras (suaves, con el petróleo de la marca en vez de negro)
+$sombra-suave: 0 6px 20px rgba(33, 57, 67, 0.08);
+$sombra-elevada: 0 14px 34px rgba(33, 57, 67, 0.16);
+
+// Espacios
 $espaciado: 20px;
+$espacio-seccion: 64px;
+$espacio-seccion-desktop: 96px;
+$ancho-texto: 62ch;
+
+// Transiciones
+$transicion: 0.2s ease;
+$transicion-lenta: 0.4s ease;
 
 // Breakpoints mobile-first: la base (sin media query) es mobile.
 $breakpoints: (

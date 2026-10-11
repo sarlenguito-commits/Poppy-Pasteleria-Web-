@@ -10,18 +10,26 @@
 @use "utilities/mixins";
 @use "utilities/extend";
 
-// 2. Base: reset y estilos globales de etiquetas
+// 2. Base: reset, estilos globales de etiquetas, tipografía y @keyframes
 @use "base/base";
 @use "base/tipografia";
 @use "base/animaciones";
 
-// 3. Layout: estructura del sitio
+// 3. Layout: estructura que se repite en todas las páginas
 @use "layout/header";
 @use "layout/nav";
+@use "layout/secciones";
 @use "layout/footer";
 
-// 4. Components: piezas repetibles
-@use "components/grids";
-@use "components/carousel";
+// 4. Components: piezas reutilizables
+@use "components/botones";
+@use "components/hero";
+@use "components/beneficios";
 @use "components/cards";
-@use "components/links";
+@use "components/galeria";
+@use "components/carousel";
+@use "components/pasos";
+@use "components/destacado";
+@use "components/contacto";
+@use "components/acordeon";
+@use "components/cta";

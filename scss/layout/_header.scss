@@ -1,47 +1,21 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-header {
-    @include flex(column, $align: center, $gap: 15px);
-    padding: $espaciado;
-    background-color: $color-primario;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='70' height='70' viewBox='0 0 70 70'%3E%3Cg fill='%236B4226' fill-opacity='0.08'%3E%3Crect x='28' y='30' width='14' height='10' rx='2'/%3E%3Ccircle cx='24' cy='27' r='6'/%3E%3Ccircle cx='24' cy='43' r='6'/%3E%3Ccircle cx='46' cy='27' r='6'/%3E%3Ccircle cx='46' cy='43' r='6'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 90px 90px;
-    text-align: center;
-
-    p {
-        color: $color-secundario;
-        font-family: $fuente-titulos;
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin: 0;
-    }
-
-    // En desktop el header sigue en columna: la marca arriba y el menú abajo.
-    // En una sola fila (logo + nombre + menú) no entraba entre 1024px y ~1330px
-    // y aparecía scroll horizontal.
-    @include desde(tablet) {
-        p {
-            font-size: 2.2rem;
-        }
-    }
-
-    @include desde(desktop) {
-        gap: $espaciado * 0.5;
-        padding: $espaciado $espaciado * 2;
-
-        p {
-            font-size: 3rem;
-        }
-    }
+// Header fijo arriba (clase sticky-top de Bootstrap en el HTML).
+// Fondo crema semitransparente con desenfoque: el contenido se intuye al pasar por debajo.
+.site-header {
+    background-color: rgba(255, 251, 239, 0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid $color-borde;
 }
 
-.header-brand {
-    @include flex(column, $align: center, $gap: 10px);
+// Logo horizontal (la palabra POPPY) a la izquierda del menú
+.marca {
+    @include flex(row, $align: center);
+    padding: 6px 0;
 
     img {
-        height: 60px;
+        height: 40px;
         width: auto;
         @include animar(aparecer-logo);
 
@@ -54,24 +28,9 @@ header {
                     balanceo 0.6s ease-in-out;
             }
         }
-    }
 
-    p {
-        @include animar(aparecer-arriba, $retraso: 0.3s);
-    }
-
-    @include desde(tablet) {
-        flex-direction: row;
-        gap: $espaciado;
-
-        img {
-            height: 120px;
-        }
-    }
-
-    @include desde(desktop) {
-        img {
-            height: 200px;
+        @include desde(desktop) {
+            height: 46px;
         }
     }
 }

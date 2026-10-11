@@ -8,40 +8,60 @@
 }
 
 html {
-    background-color: $color-fondo;
+    scroll-behavior: smooth;
+    // Los links internos (#tortas, #contenido) no quedan tapados por el menú fijo
+    scroll-padding-top: 90px;
+
+    @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+    }
 }
 
 body {
     min-height: 100vh;
     font-family: $fuente-texto;
+    font-weight: 500;
+    line-height: 1.7;
     background-color: $color-fondo;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23E8A87C' fill-opacity='0.05'%3E%3Cellipse cx='40' cy='50' rx='13' ry='10'/%3E%3Cellipse cx='23' cy='32' rx='6' ry='7'/%3E%3Cellipse cx='37' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='53' cy='23' rx='6' ry='7'/%3E%3Cellipse cx='57' cy='32' rx='6' ry='7'/%3E%3C/g%3E%3C/svg%3E");
-    background-repeat: repeat;
-    background-size: 160px 160px;
-    background-attachment: fixed;
     color: $color-texto;
-}
-
-main {
-    @include flex(column, $gap: $espaciado);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: $espaciado;
-
-    ul {
-        list-style-position: outside;
-        padding-left: 1.2rem;
-    }
-
-    @include desde(tablet) {
-        padding: $espaciado * 1.5;
-    }
+    // Evita el scroll horizontal por las decoraciones que asoman fuera de las secciones
+    overflow-x: hidden;
 }
 
 img {
-    max-width: 500px;
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
-    margin: 0 auto;
+}
+
+::selection {
+    background-color: $color-amarillo;
+    color: $color-petroleo;
+}
+
+// Foco bien visible al navegar con teclado (no aparece al hacer clic con el mouse)
+:focus-visible {
+    outline: 3px solid $color-verde;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+// Link "Saltar al contenido": invisible hasta que se llega con Tab
+.saltar-contenido {
+    position: absolute;
+    top: -100px;
+    left: $espaciado;
+    z-index: 2000;
+    padding: 10px 18px;
+    background-color: $color-petroleo;
+    color: $color-blanco;
+    font-weight: 700;
+    border-radius: $radio-chico;
+    text-decoration: none;
+    transition: top $transicion;
+
+    &:focus {
+        top: $espaciado;
+        color: $color-blanco;
+    }
 }

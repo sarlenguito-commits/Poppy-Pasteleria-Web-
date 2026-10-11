@@ -1,72 +1,81 @@
 @use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
 
-.destacados {
-    text-align: center;
-}
-
+// Carousel de Bootstrap con los trabajos (fotos verticales 4:5)
 .carousel-poppy {
-    max-width: 700px;
+    max-width: 520px;
     margin: 0 auto;
 
-    img {
-        max-width: none;
-        border-radius: $radio-borde;
+    .carousel-inner {
+        border-radius: $radio-grande;
+        box-shadow: $sombra-elevada;
+        border: 8px solid $color-blanco;
     }
 
-    // Recuadro chico para no tapar la foto (antes ocupaba el 41% del alto en
-    // productos). Más ancho que el de Bootstrap (15% libre a cada lado) para que
-    // el texto entre en menos renglones, y apenas arriba de los indicadores.
-    .carousel-caption {
-        left: 8%;
-        right: 8%;
-        bottom: 2.25rem;
-        background-color: $overlay-caption;
-        border-radius: $radio-borde;
-        padding: 6px 14px;
-        transition: background-color $transicion;
+    img {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
 
-        // h3 en el index (la sección es un h2) y h2 en productos (va directo
-        // abajo del h1), para no saltear niveles de título.
-        h2,
+    // Recuadro chico abajo, para no tapar la torta
+    .carousel-caption {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 40px 16px 44px;
+        background: linear-gradient(transparent, rgba(33, 57, 67, 0.88));
+
         h3 {
-            font-family: $fuente-titulos;
-            font-size: 1.1rem;
-            color: $color-primario;
+            font-size: 1.15rem;
+            color: $color-crema;
             margin-bottom: 2px;
         }
 
-        // Bootstrap le pone 1rem de margen abajo a cada <p>
         p {
-            font-family: $fuente-texto;
-            font-size: 0.85rem;
-            color: $color-texto;
-            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: $color-crema;
         }
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 18%;
+        opacity: 1;
     }
 
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
-        background-color: $color-secundario;
+        width: 44px;
+        height: 44px;
+        background-color: $color-petroleo;
+        background-size: 45%;
         border-radius: 50%;
-        padding: 15px;
         transition: background-color $transicion, transform $transicion;
     }
 
     .carousel-control-prev:hover .carousel-control-prev-icon,
     .carousel-control-next:hover .carousel-control-next-icon,
-    .carousel-control-prev:focus .carousel-control-prev-icon,
-    .carousel-control-next:focus .carousel-control-next-icon {
-        background-color: $color-acento;
+    .carousel-control-prev:focus-visible .carousel-control-prev-icon,
+    .carousel-control-next:focus-visible .carousel-control-next-icon {
+        background-color: $color-verde;
         transform: scale(1.1);
     }
 
     .carousel-indicators {
+        margin-bottom: 14px;
+
         button {
-            background-color: $color-secundario;
-            transition: background-color $transicion;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            border: 0;
+            background-color: $color-crema;
+            opacity: 0.6;
 
             &.active {
-                background-color: $color-acento;
+                background-color: $color-amarillo-fuerte;
+                opacity: 1;
             }
         }
     }

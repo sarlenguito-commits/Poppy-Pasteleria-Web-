@@ -1,23 +1,109 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/extend";
 
-footer {
-    @include flex(column, $align: center, $gap: 5px);
-    text-align: center;
-    padding: $espaciado;
+// Footer en azul petróleo: cierra la página con el color más fuerte de la marca
+.site-footer {
+    background-color: $color-petroleo;
+    color: $color-crema;
+    padding: $espacio-seccion 0 $espaciado;
+    margin-top: $espacio-seccion;
 
-    a {
-        color: $color-acento;
-        text-decoration: none;
+    h2 {
+        font-size: 1.1rem;
+        color: $color-amarillo;
+        margin-bottom: 14px;
     }
 
-    // Datos del negocio. Bootstrap le pone margen abajo al <address>.
+    p,
+    li {
+        color: rgba(255, 251, 239, 0.85); // crema al 85%: 10:1 sobre el petróleo
+        font-size: 0.98rem;
+    }
+
+    a {
+        color: $color-crema;
+        text-decoration: none;
+        transition: color $transicion;
+
+        &:hover,
+        &:focus-visible {
+            color: $color-amarillo;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+    }
+
+    ul {
+        @extend %lista-limpia;
+        @include flex(column, $gap: 8px);
+    }
+
+    // <address> de Bootstrap trae margen y cursiva: se limpia
     address {
-        @include flex(column, $align: center, $gap: 5px);
         margin: 0;
+        font-style: normal;
+    }
+
+    .bi {
+        color: $color-amarillo;
+        margin-right: 8px;
+    }
+}
+
+.footer-grilla {
+    @include grilla($tablet: 2, $desktop: 3, $gap: $espaciado * 2);
+}
+
+.footer-marca {
+    img {
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        margin-bottom: 14px;
+        border: 3px solid $color-amarillo;
     }
 
     p {
-        margin: 0;
+        max-width: 32ch;
+    }
+}
+
+.footer-redes {
+    @include flex(row, $gap: 10px);
+    margin-top: 16px;
+
+    a {
+        @include flex(row, $justify: center, $align: center);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 251, 239, 0.4);
+        font-size: 1.2rem;
+        transition: background-color $transicion, border-color $transicion;
+
+        .bi {
+            margin: 0;
+            color: inherit;
+        }
+
+        &:hover,
+        &:focus-visible {
+            background-color: $color-amarillo;
+            border-color: $color-amarillo;
+            color: $color-petroleo;
+            text-decoration: none;
+        }
+    }
+}
+
+.footer-legal {
+    margin-top: $espaciado * 2;
+    padding-top: $espaciado;
+    border-top: 1px solid rgba(255, 251, 239, 0.15);
+    text-align: center;
+
+    p {
+        font-size: 0.88rem;
     }
 }

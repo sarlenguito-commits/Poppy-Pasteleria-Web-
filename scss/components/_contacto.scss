@@ -1,0 +1,51 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+@use "../utilities/extend";
+
+// Tarjetas de contacto: WhatsApp, Instagram, horarios y zona
+.grilla-contacto {
+    @include grilla($tablet: 2, $desktop: 4);
+}
+
+.contacto-card {
+    @include tarjeta($padding: $espaciado * 1.5);
+    @include flex(column, $gap: 10px);
+    height: 100%;
+
+    > .bi {
+        @extend %circulo-icono;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+        margin: 0;
+    }
+
+    p {
+        flex-grow: 1;
+    }
+
+    a:not(.boton) {
+        @extend %link-acento;
+        word-break: break-word;
+    }
+
+    // La de WhatsApp resalta: es el canal principal para pedir
+    &--destacada {
+        background-color: $color-petroleo;
+        border-color: $color-petroleo;
+
+        h2 {
+            color: $color-amarillo;
+        }
+
+        p {
+            color: rgba(255, 251, 239, 0.85);
+        }
+
+        > .bi {
+            background-color: rgba(255, 243, 160, 0.15);
+            color: $color-amarillo;
+        }
+    }
+}

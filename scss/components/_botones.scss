@@ -1,0 +1,71 @@
+@use "../utilities/variables" as *;
+@use "../utilities/mixins" as *;
+
+// Botón base. Los colores salen del mixin boton($fondo, $texto, $borde).
+.boton {
+    @include flex(row, $justify: center, $align: center, $gap: 8px);
+    // inline-flex: el botón mide lo que su texto, no todo el ancho
+    display: inline-flex;
+    font-family: $fuente-titulos;
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1;
+    padding: 14px 28px;
+    border-radius: $radio-pildora;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color $transicion, border-color $transicion,
+        color $transicion, transform $transicion, box-shadow $transicion;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: $sombra-suave;
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+
+    .bi {
+        font-size: 1.15em;
+    }
+
+    // Verde: la acción principal (pedir)
+    &--primario {
+        @include boton($color-verde, $color-blanco);
+    }
+
+    // Con borde: la acción secundaria (ver productos)
+    &--secundario {
+        @include boton(transparent, $color-petroleo, $color-petroleo);
+    }
+
+    // Petróleo: para fondos amarillos donde el verde se pierde
+    &--oscuro {
+        @include boton($color-petroleo, $color-crema);
+    }
+
+    // Más chico, para el menú
+    &--chico {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+    }
+}
+
+// Grupo de botones que en mobile se apilan y desde tablet van en fila
+.grupo-botones {
+    @include flex(column, $gap: 12px);
+
+    @include desde(tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &--centrado {
+        align-items: center;
+
+        @include desde(tablet) {
+            justify-content: center;
+        }
+    }
+}

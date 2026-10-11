@@ -1,66 +1,73 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
+// Navbar de Bootstrap con la identidad de Poppy
 .navbar-poppy {
-    background-color: transparent;
-    padding: 0;
-    width: 100%;
-
-    .container-fluid {
-        padding: 0;
-    }
+    padding: 8px 0;
 
     .navbar-toggler {
-        border-color: $color-secundario;
+        border: 2px solid $color-petroleo;
+        border-radius: $radio-chico;
         padding: 6px 10px;
 
-        // Fondo oscuro: el verde acento casi no se veía sobre el durazno
         &:focus {
-            box-shadow: 0 0 0 3px $color-fondo;
+            box-shadow: 0 0 0 3px $color-verde-claro;
         }
     }
 
+    // El ícono hamburguesa de Bootstrap es un SVG gris: se redibuja en petróleo
     .navbar-toggler-icon {
-        filter: invert(29%) sepia(24%) saturate(1200%) hue-rotate(345deg) brightness(0.9);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23213943' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    // En mobile el menú desplegado ocupa todo el ancho, con aire entre links
+    .navbar-collapse {
+        padding: 12px 0;
+
+        @include desde(desktop) {
+            padding: 0;
+        }
     }
 
     .navbar-nav {
-        gap: 10px;
+        gap: 4px;
 
+        // El menú queda centrado entre el logo y el botón de WhatsApp
         @include desde(desktop) {
-            gap: $espaciado;
+            margin: 0 auto;
+            gap: 6px;
         }
     }
 
     .nav-link {
-        color: $color-menu;
         font-family: $fuente-titulos;
-        font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        border-bottom: 2px solid transparent;
-        padding-bottom: 4px;
-        transition: color $transicion, border-color $transicion;
+        font-weight: 500;
+        font-size: 1.05rem;
+        color: $color-petroleo;
+        padding: 8px 16px;
+        border-radius: $radio-pildora;
+        transition: background-color $transicion, color $transicion;
 
-        // Antes era el verde acento: sobre el durazno daba 1,25:1 y no se leía.
-        // El marrón del fondo da 6,45:1.
         &:hover,
-        &:focus {
-            color: $color-fondo;
-            border-color: $color-fondo;
+        &:focus-visible {
+            background-color: $color-verde-claro;
+            color: $color-verde;
         }
 
-        &:active,
+        // Página actual: píldora verde claro y texto verde (6:1)
         &.active {
-            color: $color-fondo;
-            border-color: $color-secundario;
+            background-color: $color-verde-claro;
+            color: $color-verde;
+            font-weight: 600;
         }
+    }
+
+    // Botón de WhatsApp: abajo del menú en mobile, a la derecha en desktop
+    .boton {
+        margin-top: 8px;
 
         @include desde(desktop) {
-            font-size: 1.3rem;
-            letter-spacing: 2px;
-            padding-bottom: 6px;
+            margin-top: 0;
         }
     }
 }
