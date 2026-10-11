@@ -54,6 +54,19 @@ Diseño mobile-first en las 5 páginas, con tres medidas:
 Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal.
 
 ## 🏁 Proyecto final: rediseño con la identidad real de la marca
+
+### ¿Por qué un rediseño?
+Hasta la Pre-entrega 9 el sitio usaba fotos de stock, una paleta marrón elegida a ojo y textos genéricos, porque todavía no teníamos el material de la marca. Para la entrega final llegaron el **logo oficial** y **fotos reales de los trabajos** de Poppy Pastelería, y eso cambió el punto de partida:
+
+- **El sitio tenía que parecerse a la marca real.** El logo es amarillo, azul petróleo y verde, con un perro chef dibujado: la paleta marrón y la tipografía elegante (Playfair Display) no tenían nada que ver. Se tomó todo del logo.
+- **La marca es "pastelería canina y felina".** El logo lo dice y una de las tortas es para gatos, pero el sitio hablaba solo de perros. Había que cambiar textos, títulos y SEO.
+- **Las fotos reales muestran productos que el sitio no tenía**: tortas con toppers con la foto de cada mascota, mini tortas con nombre, box cumpleañero con gorrito y stickers, y las Chocopop. Hacía falta un lugar para cada uno.
+- **La consigna final pide Vercel o Netlify**, así que también cambió el servidor (antes GitHub Pages) y con eso las rutas de la 404, el canonical y el sitemap.
+- **Es el cierre del curso:** se aprovechó para aplicar todo junto (Bootstrap, SCSS con mixins con parámetros, animaciones, SEO y accesibilidad) en un sitio que se ve y funciona como uno real.
+
+Se mantuvo lo que pide la consigna y lo ya aprobado: las 5 páginas con los mismos nombres, la arquitectura SCSS por carpetas, la navbar de Bootstrap, AOS y todo el SEO de la Pre-entrega 9.
+
+### Qué cambió y qué se implementó
 Para la entrega final el sitio se rediseñó completo con los logos y las fotos reales de Poppy Pastelería (antes usaba fotos de stock y una paleta marrón):
 
 - **Identidad sacada del logo**: los colores se midieron sobre la imagen del logo — azul petróleo `#213943` (la palabra POPPY), verde hoja `#80A858` (la hojita) y amarillo acuarela `#FFF3A0` (el fondo). Fondo general crema. Los títulos pasaron a **Fredoka**, redondeada como el logo.
