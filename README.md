@@ -1,6 +1,6 @@
 # Poppy Pastelería 🐾
 
-Sitio web estático de repostería artesanal pensada para mascotas, desarrollado como proyecto final del curso de Desarrollo Web de Coderhouse. El objetivo del proyecto fue aplicar de forma progresiva HTML semántico, CSS con variables y layout moderno (Flexbox y Grid), Bootstrap 5 para componentes interactivos y responsividad, la migración de los estilos a SCSS, animaciones y, por último, la optimización SEO y de accesibilidad para la subida al servidor.
+Sitio web estático de **Poppy Pastelería**, pastelería canina y felina de Neuquén: tortas de cumpleaños, mini tortas, galletitas y box cumpleañero para perros y gatos, hechos a mano por Ailu y Poppy. Desarrollado como proyecto final del curso de Desarrollo Web de Coderhouse. El objetivo fue aplicar de forma progresiva HTML semántico, CSS con variables y layout moderno (Flexbox y Grid), Bootstrap 5 para componentes interactivos y responsividad, la migración de los estilos a SCSS, animaciones, la optimización SEO y de accesibilidad y, por último, el despliegue en un servidor.
 
 ## 🔗 Demo
 [Ver sitio en vivo](https://poppy-pasteleria.netlify.app/)
@@ -10,25 +10,26 @@ Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube
 ## 🛠️ Tecnologías
 - HTML5 semántico
 - CSS3 (variables personalizadas, Flexbox, Grid)
-- Bootstrap 5 (navbar responsive, carousel, sistema de grillas y estados interactivos)
+- Bootstrap 5 (navbar responsive, carousel, accordion y sistema de grillas) + Bootstrap Icons
 - SCSS (Sass): partials, variables, mapas, mixins con parámetros, `@extend` y nesting, compilado a CSS
 - Animaciones: `@keyframes` y `transition` propios + [AOS](https://michalsnik.github.io/aos/) para animaciones al hacer scroll
 - SEO: meta description y keywords por página, Open Graph, canonical, `sitemap.xml` y `robots.txt`
+- Tipografías de Google Fonts: Fredoka (títulos) y Quicksand (texto)
 
 ## 📁 Estructura del proyecto
-- `index.html` — página principal
-- `pages/sobre-nosotros.html` — quiénes somos
-- `pages/productos.html` — catálogo con carousel
-- `pages/servicios.html` — servicios ofrecidos
-- `pages/contacto.html` — datos de contacto, horarios y preguntas frecuentes
+- `index.html` — inicio: portada, beneficios, lo más pedido, galería de cumples, quiénes somos y cómo pedir
+- `pages/sobre-nosotros.html` — la historia de Ailu y Poppy y los valores de la marca
+- `pages/productos.html` — tortas, mini tortas, galletitas y Chocopop, más la galería de trabajos (carousel)
+- `pages/servicios.html` — box cumpleañero, otros servicios y preguntas frecuentes (accordion)
+- `pages/contacto.html` — WhatsApp, Instagram, horarios, entregas y qué datos tener a mano para pedir
 - `scss/` — código fuente de los estilos, organizado en partials:
-  - `utilities/` — variables y mapa de breakpoints (`_variables.scss`), mixins con parámetros (`_mixins.scss`) y placeholders para `@extend` (`_extend.scss`)
-  - `base/` — reset, estilos globales de etiquetas, tipografía y `@keyframes` (`_animaciones.scss`)
-  - `layout/` — header, nav y footer
-  - `components/` — grids, carousel, cards y links
-  - `main.scss` — punto de entrada que importa todos los partials con `@use`
+  - `utilities/` — variables de la marca y mapa de breakpoints (`_variables.scss`), mixins con parámetros (`_mixins.scss`) y placeholders para `@extend` (`_extend.scss`)
+  - `base/` — reset, accesibilidad (foco visible y "saltar al contenido"), tipografía y `@keyframes` (`_animaciones.scss`)
+  - `layout/` — header, nav, secciones (incluye la portada chica de las páginas internas) y footer
+  - `components/` — botones, hero, beneficios, cards, galería, carousel, pasos, destacado (foto + texto), contacto, acordeón y cta
+  - `main.scss` — punto de entrada que solo importa los partials con `@use`
 - `styles/style.css` — CSS compilado desde SCSS (no se edita a mano)
-- `assets/img/` — imágenes del sitio, con nombres descriptivos (por ejemplo `torta-de-cumpleanos-para-perros.jpg`)
+- `assets/img/` — logos, favicon y fotos reales de los trabajos, con nombres descriptivos (por ejemplo `torta-de-cumpleanos-para-gato.jpg`). Cada foto está en dos tamaños (la versión `-480` es para celulares)
 - `sitemap.xml` y `robots.txt` — mapa del sitio e indicaciones para los buscadores
 - `404.html` — página propia para las direcciones que no existen (Netlify la muestra sola)
 
@@ -36,10 +37,38 @@ Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube
 Requiere Sass (`npm install -g sass`). Desde la raíz del proyecto:
 
 ```bash
-sass scss/main.scss styles/style.css
+sass --no-source-map scss/main.scss styles/style.css
 ```
 
-Para recompilar automáticamente al guardar, agregar `--watch`.
+Para recompilar automáticamente al guardar, agregar `--watch`. Se compila sin source map (`.map`): es un archivo para depurar que no hace falta en el repositorio (lo pidió la devolución de la Pre-entrega 9) y el `.gitignore` lo deja afuera.
+
+## 🎨 Diseño
+Paleta tomada del logo (azul petróleo, verde hoja y amarillo acuarela sobre fondo crema), con Fredoka para títulos y Quicksand para el texto. Botones tipo píldora, tarjetas blancas con bordes redondeados y huellitas como detalle, manteniendo la identidad visual sobre los componentes de Bootstrap. (Hasta la Pre-entrega 9 la paleta era marrón, crema y durazno, con Playfair Display en los títulos.)
+
+## 📱 Responsividad
+Diseño mobile-first en las 5 páginas, con tres medidas:
+- **Mobile** (base, sin media query)
+- **Tablet** desde `768px`
+- **Escritorio** desde `1024px`
+
+Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal.
+
+## 🏁 Proyecto final: rediseño con la identidad real de la marca
+Para la entrega final el sitio se rediseñó completo con los logos y las fotos reales de Poppy Pastelería (antes usaba fotos de stock y una paleta marrón):
+
+- **Identidad sacada del logo**: los colores se midieron sobre la imagen del logo — azul petróleo `#213943` (la palabra POPPY), verde hoja `#80A858` (la hojita) y amarillo acuarela `#FFF3A0` (el fondo). Fondo general crema. Los títulos pasaron a **Fredoka**, redondeada como el logo.
+- **Perros y gatos**: el logo dice "pastelería canina y felina", así que los textos, títulos y keywords se actualizaron para incluir a los gatos.
+- **Contenido nuevo**: portada con el lema "Galletas que mueven colitas", beneficios con íconos, tarjetas de productos, galería de cumples en mosaico, pasos para pedir, box cumpleañero, Chocopop (galletas de algarroba), la historia de Ailu y Poppy y botones de WhatsApp con el mensaje ya escrito según el producto.
+- **Header fijo** (`sticky-top` de Bootstrap) con el logo horizontal, el menú centrado y el botón "Pedí por WhatsApp". Footer en tres columnas con los datos del negocio.
+- **Componentes de Bootstrap**: navbar colapsable, carousel (galería de trabajos), accordion (preguntas frecuentes) y grilla. Los colores del accordion se cambian pisando sus variables CSS (`--bs-accordion-*`).
+- **SCSS**: mixins con parámetros nuevos — `boton($fondo, $texto, $borde)`, `tarjeta($padding, $radio)` y `grilla($tablet, $desktop, $gap)` — y placeholders `%imagen-redondeada`, `%etiqueta`, `%circulo-icono` y `%lista-limpia`. Los pasos de "Cómo pedir" se numeran con un **contador de CSS** (`counter-reset` / `counter-increment`).
+- **Imágenes**: logo horizontal recortado y con fondo transparente, favicon con la cabeza del perro chef, fotos sin los datos ocultos del celular (EXIF), comprimidas y en dos tamaños con `srcset` y `sizes`, para que el celular descargue la chica. Las fotos de stock se sacaron.
+- **Accesibilidad**: contraste medido con la fórmula de WCAG — texto 11,7:1, texto secundario 6,3:1, botones verdes 6,3:1 (el verde del logo da 2,65:1, así que se usa solo como decoración). Link "Saltar al contenido" para teclado, foco visible en todos los elementos y `alt` descriptivo en cada foto.
+- **Detalle técnico**: las tarjetas se levantan al pasar el mouse con la propiedad `translate` y no con `transform`, porque AOS anima con `transform` y una pisaría a la otra.
+- **Despliegue**: Netlify, con publicación automática en cada push a `main`.
+
+## 📚 Historial de las pre-entregas
+Las secciones que siguen cuentan qué se hizo en cada pre-entrega, en su momento. Algunos detalles (colores, fotos, clases) cambiaron con el rediseño del proyecto final.
 
 ## 📝 Notas de la entrega SCSS (Pre-entrega 7)
 La refactorización a SCSS es un cambio estructural: el diseño del sitio se mantiene igual que en la versión con CSS plano. Además de la migración, en esta entrega se hicieron estos cambios puntuales:
@@ -48,17 +77,6 @@ La refactorización a SCSS es un cambio estructural: el diseño del sitio se man
 - **Contenido nuevo en `contacto.html`**: se agregaron las secciones "Horarios y entregas" y "Preguntas frecuentes" para que la página tenga el mismo nivel de detalle que el resto del sitio. También se agrandó la tipografía del título y de la lista de contacto dentro de `.contacto`.
 - **`box-sizing: border-box` en el reset global**: corrección pendiente de la devolución de la Pre-entrega 3.
 - **Link a la hoja de estilos**: en los 5 HTML se cambió `styles/styles.css` por `styles/style.css`, que es el archivo que genera el compilador.
-
-## 🎨 Diseño
-Paleta de colores propia (marrón cálido, crema y durazno) combinada con tipografías Playfair Display para títulos y Quicksand para el cuerpo del texto, manteniendo identidad visual sobre los componentes de Bootstrap.
-
-## 📱 Responsividad
-Diseño mobile-first en las 5 páginas, con tres medidas:
-- **Mobile** (base, sin media query)
-- **Tablet** desde `768px`
-- **Escritorio** desde `1024px`
-
-Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Probado de 375px a 1400px sin scroll horizontal.
 
 ## ✨ Animaciones (Pre-entrega 8)
 - **Nativas**: `@keyframes` en `base/_animaciones.scss`. El logo y el nombre del header aparecen al cargar la página y el logo se balancea al pasar el mouse. Se aplican con el mixin `animar($nombre, $duracion, $retraso)`. Se suman a las `transition` que ya tenían las cards, el nav, los links y el carousel.
