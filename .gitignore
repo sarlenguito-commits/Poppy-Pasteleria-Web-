@@ -1,0 +1,2 @@
+# Artefactos de compilación de Sass (el CSS compilado sí se sube; el source map no)
+*.map

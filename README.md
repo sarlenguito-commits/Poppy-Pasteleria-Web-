@@ -3,7 +3,9 @@
 Sitio web estático de repostería artesanal pensada para mascotas, desarrollado como proyecto final del curso de Desarrollo Web de Coderhouse. El objetivo del proyecto fue aplicar de forma progresiva HTML semántico, CSS con variables y layout moderno (Flexbox y Grid), Bootstrap 5 para componentes interactivos y responsividad, la migración de los estilos a SCSS, animaciones y, por último, la optimización SEO y de accesibilidad para la subida al servidor.
 
 ## 🔗 Demo
-[Ver sitio en vivo](https://sarlenguito-commits.github.io/Poppy-Pasteleria-Web-/)
+[Ver sitio en vivo](https://poppy-pasteleria.netlify.app/)
+
+Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube a la rama `main` se publica solo.
 
 ## 🛠️ Tecnologías
 - HTML5 semántico
@@ -28,7 +30,7 @@ Sitio web estático de repostería artesanal pensada para mascotas, desarrollado
 - `styles/style.css` — CSS compilado desde SCSS (no se edita a mano)
 - `assets/img/` — imágenes del sitio, con nombres descriptivos (por ejemplo `torta-de-cumpleanos-para-perros.jpg`)
 - `sitemap.xml` y `robots.txt` — mapa del sitio e indicaciones para los buscadores
-- `404.html` — página propia para las direcciones que no existen (GitHub Pages la muestra sola)
+- `404.html` — página propia para las direcciones que no existen (Netlify la muestra sola)
 
 ## ⚙️ Compilar los estilos
 Requiere Sass (`npm install -g sass`). Desde la raíz del proyecto:
@@ -84,11 +86,11 @@ Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoi
 
 ### SEO técnico
 - **`sitemap.xml`** con las 5 páginas, para darlo de alta en Google Search Console.
-- **`robots.txt`** que permite el rastreo e indica dónde está el sitemap. Aclaración: en GitHub Pages el sitio vive en una subcarpeta (`/Poppy-Pasteleria-Web-/`) y los buscadores solo leen el `robots.txt` de la raíz del dominio, así que va a funcionar recién cuando el sitio tenga dominio propio. El sitemap sí se puede cargar a mano en Search Console.
+- **`robots.txt`** que permite el rastreo e indica dónde está el sitemap. Los buscadores solo leen el `robots.txt` de la raíz del dominio: en Netlify el sitio vive en la raíz (`poppy-pasteleria.netlify.app/robots.txt`), así que lo encuentran.
 - **`<link rel="canonical">`** en cada página, para que Google tome una sola URL oficial (por ejemplo, que no cuente `/` e `/index.html` como dos páginas).
 - **Favicon** con el logo y `lang="es-AR"` (castellano de Argentina) en todas las páginas.
 - **Seguridad de las librerías (SRI)**: los 4 archivos que vienen de CDN (Bootstrap y AOS, CSS y JS) tienen el atributo `integrity` con su huella `sha384`. Si alguien modificara el archivo en el CDN, el navegador no lo carga.
-- **Página `404.html`**: GitHub Pages la muestra en cualquier dirección que no exista, con el diseño del sitio y links para volver. Tiene `meta robots noindex` para que no aparezca en Google. Como se puede mostrar desde cualquier carpeta, sus rutas son absolutas (`/Poppy-Pasteleria-Web-/...`): por eso, abierta con Live Server, se ve sin estilos; en GitHub Pages funciona bien.
+- **Página `404.html`**: Netlify la muestra en cualquier dirección que no exista, con el diseño del sitio y links para volver. Tiene `meta robots noindex` para que no aparezca en Google. Como se puede mostrar desde cualquier carpeta, sus rutas son absolutas (empiezan con `/`, la raíz del sitio).
 
 ### SEO Off-Page
 - **Etiquetas Open Graph** (`og:title`, `og:description`, `og:image`, etc.) para que, al compartir el link por WhatsApp, Instagram o Facebook, aparezca con foto, título y descripción. Compartir el sitio en redes es la principal fuente de visitas y enlaces externos.

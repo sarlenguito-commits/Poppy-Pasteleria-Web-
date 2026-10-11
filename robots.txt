@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Dónde está el mapa del sitio
-Sitemap: https://sarlenguito-commits.github.io/Poppy-Pasteleria-Web-/sitemap.xml
+Sitemap: https://poppy-pasteleria.netlify.app/sitemap.xml
