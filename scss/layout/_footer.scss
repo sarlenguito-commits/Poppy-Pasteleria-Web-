@@ -2,26 +2,23 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Footer en azul petróleo: cierra la página con el color más fuerte de la marca
+// Footer en azul petróleo, en una sola columna centrada: la guirnalda arriba (clara),
+// el logo, el lema, el botón de pedir, los links y los datos del negocio.
+// El sitio cierra igual que abre, sin las tres columnas de plantilla.
 .site-footer {
     background-color: $color-petroleo;
     color: $color-crema;
-    padding: $espacio-seccion 0 $espaciado;
     margin-top: $espacio-seccion;
+    padding-bottom: $espaciado * 1.5;
+    text-align: center;
 
-    h2 {
-        font-size: 1.1rem;
-        color: $color-amarillo;
-        margin-bottom: 14px;
-    }
-
-    p,
-    li {
+    p {
         color: rgba(255, 251, 239, 0.85); // crema al 85%: 10:1 sobre el petróleo
         font-size: 0.98rem;
+        margin: 0;
     }
 
-    a {
+    a:not(.boton) {
         color: $color-crema;
         text-decoration: none;
         transition: color $transicion;
@@ -34,76 +31,51 @@
         }
     }
 
-    ul {
-        @extend %lista-limpia;
-        @include flex(column, $gap: 8px);
-    }
-
     // <address> de Bootstrap trae margen y cursiva: se limpia
     address {
+        @include flex(column, $gap: 4px);
         margin: 0;
         font-style: normal;
     }
+}
 
-    .bi {
+.footer-centro {
+    @include flex(column, $align: center, $gap: $espaciado);
+    padding-top: $espaciado;
+
+    > img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 4px solid $color-amarillo;
+    }
+}
+
+// El lema en la letra de los títulos: es la frase de la marca, no un título de sección
+// (dentro de .site-footer & para ganarle a la regla general de los <p> del footer)
+.footer-lema {
+    .site-footer & {
+        font-family: $fuente-titulos;
+        font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+        line-height: 1.1;
         color: $color-amarillo;
-        margin-right: 8px;
     }
 }
 
-.footer-grilla {
-    @include grilla($tablet: 2, $desktop: 3, $gap: $espaciado * 2);
-}
-
-.footer-marca {
-    img {
-        width: 96px;
-        height: 96px;
-        border-radius: 50%;
-        margin-bottom: 14px;
-        border: 3px solid $color-amarillo;
-    }
-
-    p {
-        max-width: 32ch;
-    }
-}
-
-.footer-redes {
-    @include flex(row, $gap: 10px);
-    margin-top: 16px;
-
-    a {
-        @include flex(row, $justify: center, $align: center);
-        width: 42px;
-        height: 42px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 251, 239, 0.4);
-        font-size: 1.2rem;
-        transition: background-color $transicion, border-color $transicion;
-
-        .bi {
-            margin: 0;
-            color: inherit;
-        }
-
-        &:hover,
-        &:focus-visible {
-            background-color: $color-amarillo;
-            border-color: $color-amarillo;
-            color: $color-petroleo;
-            text-decoration: none;
-        }
-    }
+.footer-links {
+    @extend %lista-limpia;
+    @include flex(row, $justify: center, $gap: 6px 22px);
+    flex-wrap: wrap;
+    font-weight: 700;
 }
 
 .footer-legal {
-    margin-top: $espaciado * 2;
+    width: 100%;
+    margin-top: $espaciado;
     padding-top: $espaciado;
     border-top: 1px solid rgba(255, 251, 239, 0.15);
-    text-align: center;
 
-    p {
+    .site-footer & {
         font-size: 0.88rem;
     }
 }

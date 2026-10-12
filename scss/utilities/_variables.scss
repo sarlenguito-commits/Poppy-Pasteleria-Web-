@@ -4,25 +4,29 @@
 // ============================================
 
 // Colores de marca
-$color-petroleo: #213943;        // texto y títulos (11,7:1 sobre el crema)
-$color-petroleo-suave: #4B6169;  // texto secundario (6,3:1 sobre el crema)
+$color-petroleo: #213943;        // texto y títulos (12,1:1 sobre el blanco)
+$color-petroleo-suave: #4B6169;  // texto secundario (6,5:1 sobre el blanco)
 $color-verde-hoja: #80A858;      // solo decoración: como texto no llega al contraste mínimo
 $color-verde: #3F6B2A;           // botones y links (texto blanco encima: 6,3:1)
 $color-verde-claro: #EAF2DF;     // fondos de íconos y estados activos
 $color-amarillo: #FFF3A0;        // bloques destacados, como la acuarela del logo
 $color-amarillo-fuerte: #F7D74A; // detalles chicos (estrellas, subrayados)
-$color-crema: #FFFBEF;           // fondo general
+$color-crema: #FFFBEF;           // texto claro sobre el petróleo (footer y WhatsApp)
 $color-blanco: #FFFFFF;
 
 // Usos (así cada partial habla de "fondo" o "texto" y no de un color puntual)
-$color-fondo: $color-crema;
+// El fondo es blanco, como el del logo: el amarillo queda para los bloques que destacan.
+$color-fondo: $color-blanco;
 $color-texto: $color-petroleo;
 $color-texto-suave: $color-petroleo-suave;
 $color-borde: rgba(33, 57, 67, 0.12);
 
 // Tipografías
-$fuente-titulos: 'Fredoka', sans-serif;
-$fuente-texto: 'Quicksand', sans-serif;
+// Bagel Fat One: gruesa y redondeada, como letra horneada (el "Feliz cumple" de los toppers).
+// Tiene un solo grosor: va solo en h1, h2 y los números de los pasos.
+// Karla: texto, menú, botones y h3; distinta de la de títulos a propósito.
+$fuente-titulos: 'Bagel Fat One', 'Arial Rounded MT Bold', sans-serif;
+$fuente-texto: 'Karla', sans-serif;
 
 // Formas
 $radio-chico: 12px;

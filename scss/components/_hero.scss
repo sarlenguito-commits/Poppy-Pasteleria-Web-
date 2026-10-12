@@ -2,20 +2,16 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Portada del inicio: texto a la izquierda y la foto del box a la derecha
+// Portada del inicio: la guirnalda arriba, el texto a la izquierda
+// y la foto del box de Muna con borde de topper (como los stickers que imprime Ailu)
 .hero {
-    position: relative;
-    padding: $espaciado * 2 0 $espacio-seccion;
+    padding-bottom: $espacio-seccion;
     background-color: $color-amarillo;
-    // Manchas de acuarela suaves, como el fondo del logo
-    background-image:
-        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.55) 0, transparent 35%),
-        radial-gradient(circle at 10% 90%, rgba(247, 215, 74, 0.45) 0, transparent 40%);
     border-radius: 0 0 $radio-grande $radio-grande;
     overflow: hidden;
 
     @include desde(desktop) {
-        padding: $espacio-seccion 0 $espacio-seccion-desktop;
+        padding-bottom: $espacio-seccion-desktop;
     }
 }
 
@@ -23,94 +19,36 @@
     display: grid;
     gap: $espaciado * 2;
     align-items: center;
+    padding-top: $espaciado;
 
     @include desde(desktop) {
         grid-template-columns: 1.1fr 0.9fr;
         gap: $espaciado * 3;
+        padding-top: $espaciado * 2;
     }
 }
 
 .hero-texto {
-    span {
-        @extend %etiqueta;
-        @include animar(aparecer-arriba);
-    }
-
     h1 {
-        @include animar(aparecer-arriba, $retraso: 0.1s);
-
-        // "colitas" subrayado con un trazo amarillo fuerte
-        em {
-            font-style: normal;
-            background-image: linear-gradient(transparent 62%, $color-amarillo-fuerte 62%);
-        }
+        max-width: 12ch;
     }
 
     p {
         font-size: 1.2rem;
         color: $color-petroleo;
-        max-width: 46ch;
+        max-width: 44ch;
         margin-bottom: $espaciado * 1.5;
-        @include animar(aparecer-arriba, $retraso: 0.2s);
-    }
-
-    .grupo-botones {
-        @include animar(aparecer-arriba, $retraso: 0.3s);
     }
 }
 
-// Foto con marco blanco, apenas girada, y dos etiquetas que flotan encima
 .hero-foto {
-    position: relative;
-    max-width: 420px;
+    max-width: 400px;
     margin: 0 auto;
 
     img {
         @extend %imagen-redondeada;
         aspect-ratio: 4 / 5;
-        border: 8px solid $color-blanco;
-        border-radius: $radio-grande;
-        box-shadow: $sombra-elevada;
+        border: 10px solid $color-blanco;
         transform: rotate(2deg);
-    }
-}
-
-.hero-sello {
-    position: absolute;
-    @include flex(row, $align: center, $gap: 8px);
-    padding: 10px 16px;
-    background-color: $color-blanco;
-    border-radius: $radio-pildora;
-    box-shadow: $sombra-elevada;
-    font-family: $fuente-titulos;
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: $color-petroleo;
-    @include animar(flotar, $duracion: 4s, $repetir: infinite);
-
-    .bi {
-        color: $color-verde;
-        font-size: 1.2rem;
-    }
-
-    &--arriba {
-        top: 18px;
-        left: -10px;
-    }
-
-    &--abajo {
-        bottom: 26px;
-        right: -10px;
-        animation-delay: 2s;
-    }
-
-    @include desde(tablet) {
-        &--arriba {
-            left: -40px;
-        }
-
-        &--abajo {
-            right: -30px;
-        }
     }
 }

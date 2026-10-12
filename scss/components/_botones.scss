@@ -6,7 +6,7 @@
     @include flex(row, $justify: center, $align: center, $gap: 8px);
     // inline-flex: el botón mide lo que su texto, no todo el ancho
     display: inline-flex;
-    font-family: $fuente-titulos;
+    font-family: $fuente-texto;
     font-weight: 600;
     font-size: 1.05rem;
     line-height: 1;

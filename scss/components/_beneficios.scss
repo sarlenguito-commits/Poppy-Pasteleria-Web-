@@ -2,30 +2,30 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Franja de beneficios: ícono + título corto + una línea
+// Lo que distingue a Poppy, en una línea: ícono + título corto + una frase.
+// Sin cajas: es información de apoyo, no tiene que competir con los productos.
 .beneficios {
     @extend %lista-limpia;
-    display: grid;
-    gap: $espaciado;
-    grid-template-columns: 1fr 1fr;
-
-    @include desde(desktop) {
-        grid-template-columns: repeat(4, 1fr);
-    }
+    // Una columna en celular (en dos, "Personalizados" no entraba a 320 px), dos en tablet y cuatro en desktop
+    @include grilla($tablet: 2, $desktop: 4, $gap: $espaciado * 1.5 $espaciado);
 
     li {
-        @include tarjeta($padding: $espaciado);
-        @include flex(column, $align: center, $gap: 10px);
-        text-align: center;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 12px;
+        align-items: start;
     }
 
     .bi {
-        @extend %circulo-icono;
+        grid-row: span 2;
+        font-size: 1.6rem;
+        line-height: 1;
+        color: $color-verde;
     }
 
     h3 {
         font-size: 1.05rem;
-        margin: 0;
+        margin: 0 0 2px;
     }
 
     p {

@@ -2,9 +2,9 @@
 @use "../utilities/mixins" as *;
 
 // Header fijo arriba (clase sticky-top de Bootstrap en el HTML).
-// Fondo crema semitransparente con desenfoque: el contenido se intuye al pasar por debajo.
+// Fondo blanco semitransparente con desenfoque: el contenido se intuye al pasar por debajo.
 .site-header {
-    background-color: rgba(255, 251, 239, 0.92);
+    background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid $color-borde;
 }

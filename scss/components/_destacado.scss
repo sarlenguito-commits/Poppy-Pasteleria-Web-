@@ -25,10 +25,6 @@
             margin-top: $espacio-seccion-desktop;
         }
     }
-
-    span {
-        @extend %etiqueta;
-    }
 }
 
 // Una foto sola o dos superpuestas (la segunda más chica, corrida hacia abajo)
@@ -104,7 +100,7 @@
         background-color: $color-blanco;
         border: 2px solid $color-petroleo;
         color: $color-petroleo;
-        font-family: $fuente-titulos;
+        font-family: $fuente-texto;
         font-weight: 600;
         text-decoration: none;
         transition: background-color $transicion, color $transicion;

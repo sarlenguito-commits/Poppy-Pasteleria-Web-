@@ -2,50 +2,74 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Tarjetas de contacto: WhatsApp, Instagram, horarios y zona
-.grilla-contacto {
-    @include grilla($tablet: 2, $desktop: 4);
+// Contacto: WhatsApp es el canal principal y va grande; el resto, como datos al costado
+.contacto {
+    display: grid;
+    gap: $espaciado * 2;
+    align-items: start;
+
+    @include desde(desktop) {
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: $espaciado * 4;
+    }
 }
 
-.contacto-card {
-    @include tarjeta($padding: $espaciado * 1.5);
-    @include flex(column, $gap: 10px);
-    height: 100%;
+.contacto-whatsapp {
+    padding: $espaciado * 2;
+    background-color: $color-petroleo;
+    border-radius: $radio-grande;
 
     > .bi {
-        @extend %circulo-icono;
+        display: block;
+        font-size: 2.6rem;
+        line-height: 1;
+        color: $color-amarillo;
+        margin-bottom: $espaciado;
     }
 
     h2 {
-        font-size: 1.25rem;
-        margin: 0;
+        color: $color-amarillo;
     }
 
     p {
-        flex-grow: 1;
+        color: rgba(255, 251, 239, 0.85); // crema al 85%: 10:1 sobre el petróleo
+        font-size: 1.1rem;
+        margin-bottom: $espaciado * 1.5;
+    }
+}
+
+// Lista de datos: <dt> el nombre, <dd> el dato
+.contacto-datos {
+    margin: 0;
+
+    div {
+        padding: $espaciado 0;
+        border-bottom: 2px solid $color-borde;
+
+        &:first-child {
+            padding-top: 0;
+        }
     }
 
-    a:not(.boton) {
-        @extend %link-acento;
-        word-break: break-word;
+    dt {
+        @include flex(row, $align: center, $gap: 10px);
+        font-family: $fuente-texto;
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: $color-petroleo;
+
+        .bi {
+            color: $color-verde;
+            font-size: 1.3rem;
+        }
     }
 
-    // La de WhatsApp resalta: es el canal principal para pedir
-    &--destacada {
-        background-color: $color-petroleo;
-        border-color: $color-petroleo;
+    dd {
+        margin: 4px 0 0 34px;
+        color: $color-texto-suave;
 
-        h2 {
-            color: $color-amarillo;
-        }
-
-        p {
-            color: rgba(255, 251, 239, 0.85);
-        }
-
-        > .bi {
-            background-color: rgba(255, 243, 160, 0.15);
-            color: $color-amarillo;
+        a {
+            @extend %link-acento;
         }
     }
 }

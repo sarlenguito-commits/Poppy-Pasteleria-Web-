@@ -1,32 +1,60 @@
+@use "sass:list";
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Grillas de tarjetas
+// Grillas
+// Productos: como fotos pegadas en la heladera. En desktop, la 2.ª y la 4.ª bajan un poco
+// para que la fila no quede como una planilla.
 .grilla-productos {
-    @include grilla($tablet: 2, $desktop: 4);
+    @include grilla($tablet: 2, $desktop: 4, $gap: $espaciado * 2 $espaciado * 1.5);
+    padding: 8px 10px $espaciado;
+
+    @include desde(desktop) {
+        > :nth-child(even) {
+            margin-top: $espaciado * 2.5;
+        }
+    }
 }
 
 .grilla-servicios {
-    @include grilla($tablet: 2, $desktop: 2);
+    @include grilla($tablet: 2, $desktop: 2, $gap: $espaciado * 2);
 }
 
-// Tarjeta de producto: foto arriba, texto abajo. Toda la tarjeta es un link.
+// Giro de cada foto (con la propiedad "rotate", aparte de "transform" y de "translate")
+$giros-producto: (-2.5deg, 1.5deg, -1deg, 2deg);
+
+// Tarjeta de producto con marco blanco de foto instantánea. Toda la tarjeta es un link.
+// Es la única "caja" del sitio: los productos son cosas que se eligen.
 .producto-card {
-    @include tarjeta($padding: 0);
     @include flex(column);
     height: 100%;
-    overflow: hidden;
+    padding: 12px 12px $espaciado;
+    background-color: $color-blanco;
+    border-radius: 6px;
+    box-shadow: $sombra-suave, 0 1px 3px rgba(33, 57, 67, 0.12);
     color: inherit;
     text-decoration: none;
-    // Se usa "translate" y no "transform" para levantar la tarjeta: AOS anima con
-    // transform y, si fuera la misma propiedad, la entrada pisaría el hover.
-    transition: translate $transicion-lenta, box-shadow $transicion-lenta;
+    // "translate" y "rotate" en vez de "transform": AOS anima con transform y,
+    // si fuera la misma propiedad, la entrada pisaría el hover.
+    transition: translate $transicion-lenta, rotate $transicion-lenta, box-shadow $transicion-lenta;
+
+    // En celular, la mitad del giro: con el giro entero, las esquinas asomaban por el costado
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+            rotate: list.nth($giros-producto, $i) * 0.5;
+
+            @include desde(tablet) {
+                rotate: list.nth($giros-producto, $i);
+            }
+        }
+    }
 
     figure {
         margin: 0;
         overflow: hidden;
         aspect-ratio: 4 / 5;
+        border-radius: 3px;
     }
 
     img {
@@ -39,7 +67,7 @@
     div {
         @include flex(column, $gap: 6px);
         flex-grow: 1;
-        padding: $espaciado;
+        padding: $espaciado 6px 0;
     }
 
     h3 {
@@ -51,56 +79,48 @@
         flex-grow: 1;
     }
 
-    // "Ver más" con flechita que se corre al pasar el mouse
+    // "Ver tortas", "Ver galletitas"…: dice adónde lleva el link
     .ver-mas {
-        font-family: $fuente-titulos;
+        font-family: $fuente-texto;
         font-weight: 600;
         color: $color-verde;
-
-        .bi {
-            display: inline-block;
-            transition: transform $transicion;
-        }
+        text-decoration: underline;
+        text-underline-offset: 4px;
     }
 
+    // La que se señala se endereza y se levanta, como si la despegaras para mirarla
     &:hover,
     &:focus-visible {
-        translate: 0 -6px;
+        translate: 0 -8px;
+        rotate: 0deg;
         box-shadow: $sombra-elevada;
         color: inherit;
 
         img {
             transform: scale(1.06);
         }
-
-        .ver-mas .bi {
-            transform: translateX(4px);
-        }
     }
 }
 
-// Tarjeta con ícono: servicios y valores
+// Servicios y valores: ícono al costado del texto, sin caja ni sombra.
+// La línea de arriba separa cada ítem y ordena la lectura en la grilla.
 .servicio-card {
-    @include tarjeta($padding: $espaciado * 1.5);
-    @include flex(column, $gap: 12px);
-    height: 100%;
-    // translate en vez de transform, por la misma razón que en .producto-card
-    transition: translate $transicion, border-color $transicion;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: $espaciado;
+    padding-top: $espaciado;
+    border-top: 2px solid $color-borde;
 
     > .bi {
         @extend %circulo-icono;
+        grid-row: span 2;
     }
 
     h3 {
-        margin: 0;
+        margin: 0 0 6px;
     }
 
     p {
         font-size: 0.98rem;
-    }
-
-    &:hover {
-        translate: 0 -4px;
-        border-color: $color-verde-hoja;
     }
 }
