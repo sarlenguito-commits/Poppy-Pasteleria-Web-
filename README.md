@@ -14,7 +14,7 @@ Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube
 - SCSS (Sass): partials, variables, mapas, mixins con parámetros, `@extend` y nesting, compilado a CSS
 - Animaciones: `@keyframes` y `transition` propios + [AOS](https://michalsnik.github.io/aos/) para animaciones al hacer scroll
 - SEO: meta description y keywords por página, Open Graph, canonical, `sitemap.xml` y `robots.txt`
-- Tipografías de Google Fonts: Fredoka (títulos) y Quicksand (texto)
+- Tipografías de Google Fonts: Paytone One (títulos) y Karla (texto)
 
 ## 📁 Estructura del proyecto
 - `index.html` — inicio: portada, beneficios, lo más pedido, galería de cumples, quiénes somos y cómo pedir
@@ -43,7 +43,7 @@ sass --no-source-map scss/main.scss styles/style.css
 Para recompilar automáticamente al guardar, agregar `--watch`. Se compila sin source map (`.map`): es un archivo para depurar que no hace falta en el repositorio (lo pidió la devolución de la Pre-entrega 9) y el `.gitignore` lo deja afuera.
 
 ## 🎨 Diseño
-Paleta tomada del logo (azul petróleo, verde hoja y amarillo acuarela sobre fondo crema), con Fredoka para títulos y Quicksand para el texto. Botones tipo píldora, tarjetas blancas con bordes redondeados y huellitas como detalle, manteniendo la identidad visual sobre los componentes de Bootstrap. (Hasta la Pre-entrega 9 la paleta era marrón, crema y durazno, con Playfair Display en los títulos.)
+Paleta tomada del logo (azul petróleo, verde hoja y amarillo acuarela sobre fondo blanco, como el del logo), con **Paytone One** para los títulos (geométrica y gruesa, con la "o" redonda, como la palabra POPPY del logo) y **Karla** para el texto, el menú y los botones. El detalle propio del sitio es una **guirnalda de banderines**, como la que Ailu pone en sus tortas, arriba de cada portada. El resto es sobrio a propósito: botones tipo píldora, tarjetas solo para los productos y fotos con borde blanco, como los toppers. (Hasta la Pre-entrega 9 la paleta era marrón, crema y durazno, con Playfair Display en los títulos.)
 
 ## 📱 Responsividad
 Diseño mobile-first en las 5 páginas, con tres medidas:
@@ -51,7 +51,7 @@ Diseño mobile-first en las 5 páginas, con tres medidas:
 - **Tablet** desde `768px`
 - **Escritorio** desde `1024px`
 
-Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal.
+Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal (en celular los beneficios van en una columna).
 
 ## 🏁 Proyecto final: rediseño con la identidad real de la marca
 
@@ -69,16 +69,35 @@ Se mantuvo lo que pide la consigna y lo ya aprobado: las 5 páginas con los mism
 ### Qué cambió y qué se implementó
 Para la entrega final el sitio se rediseñó completo con los logos y las fotos reales de Poppy Pastelería (antes usaba fotos de stock y una paleta marrón):
 
-- **Identidad sacada del logo**: los colores se midieron sobre la imagen del logo — azul petróleo `#213943` (la palabra POPPY), verde hoja `#80A858` (la hojita) y amarillo acuarela `#FFF3A0` (el fondo). Fondo general crema. Los títulos pasaron a **Fredoka**, redondeada como el logo.
+- **Identidad sacada del logo**: los colores se midieron sobre la imagen del logo — azul petróleo `#213943` (la palabra POPPY), verde hoja `#80A858` (la hojita) y amarillo acuarela `#FFF3A0` (el fondo). Fondo general blanco. Los títulos pasaron a **Paytone One** y el texto a **Karla** (antes se probaron Fredoka con Quicksand, la elección "amigable" de siempre, y Bagel Fat One, que quedaba demasiado pesada).
 - **Perros y gatos**: el logo dice "pastelería canina y felina", así que los textos, títulos y keywords se actualizaron para incluir a los gatos.
-- **Contenido nuevo**: portada con el lema "Galletas que mueven colitas", beneficios con íconos, tarjetas de productos, galería de cumples en mosaico, pasos para pedir, box cumpleañero, Chocopop (galletas de algarroba), la historia de Ailu y Poppy y botones de WhatsApp con el mensaje ya escrito según el producto.
-- **Header fijo** (`sticky-top` de Bootstrap) con el logo horizontal, el menú centrado y el botón "Pedí por WhatsApp". Footer en tres columnas con los datos del negocio.
+- **Contenido nuevo**: portada con el lema "Galletas que mueven colitas", beneficios con íconos, tarjetas de productos, galería "Cumpleañeros de Poppy" en mosaico, pasos para pedir, box cumpleañero, Chocopop (galletas de algarroba), la historia de Ailu y Poppy y botones de WhatsApp con el mensaje ya escrito según el producto.
+- **Header fijo** (`sticky-top` de Bootstrap) con el logo horizontal, el menú centrado y el botón "Pedí por WhatsApp". Footer en una sola columna centrada: la guirnalda en colores claros, el logo, el lema, el botón de WhatsApp, los links y los datos del negocio (el sitio cierra igual que abre).
 - **Componentes de Bootstrap**: navbar colapsable, carousel (galería de trabajos), accordion (preguntas frecuentes) y grilla. Los colores del accordion se cambian pisando sus variables CSS (`--bs-accordion-*`).
-- **SCSS**: mixins con parámetros nuevos — `boton($fondo, $texto, $borde)`, `tarjeta($padding, $radio)` y `grilla($tablet, $desktop, $gap)` — y placeholders `%imagen-redondeada`, `%etiqueta`, `%circulo-icono` y `%lista-limpia`. Los pasos de "Cómo pedir" se numeran con un **contador de CSS** (`counter-reset` / `counter-increment`).
+- **SCSS**: mixins con parámetros nuevos — `boton($fondo, $texto, $borde)`, `tarjeta($padding, $radio)` y `grilla($tablet, $desktop, $gap)` — y placeholders `%foto-impresa`, `%cinta`, `%link-acento`, `%circulo-icono` y `%lista-limpia`. Los pasos de "Cómo pedir" se numeran con un **contador de CSS** (`counter-reset` / `counter-increment`). La guirnalda (`components/_guirnalda.scss`) usa un bucle **`@for`** que le da a cada banderín su color, su retraso y su altura sobre una curva calculada con **`sass:math`**; el hilo es una curva SVG con la misma forma.
 - **Imágenes**: logo horizontal recortado y con fondo transparente, favicon con la cabeza del perro chef, fotos sin los datos ocultos del celular (EXIF), comprimidas y en dos tamaños con `srcset` y `sizes`, para que el celular descargue la chica. Las fotos de stock se sacaron.
-- **Accesibilidad**: contraste medido con la fórmula de WCAG — texto 11,7:1, texto secundario 6,3:1, botones verdes 6,3:1 (el verde del logo da 2,65:1, así que se usa solo como decoración). Link "Saltar al contenido" para teclado, foco visible en todos los elementos y `alt` descriptivo en cada foto.
+- **Accesibilidad**: contraste medido con la fórmula de WCAG — texto 12,1:1, texto secundario 6,5:1, botones verdes 6,3:1 (el verde del logo da 2,65:1, así que se usa solo como decoración). Link "Saltar al contenido" para teclado, foco visible en todos los elementos y `alt` descriptivo en cada foto.
 - **Detalle técnico**: las tarjetas se levantan al pasar el mouse con la propiedad `translate` y no con `transform`, porque AOS anima con `transform` y una pisaría a la otra.
 - **Despliegue**: Netlify, con publicación automática en cada push a `main`.
+
+### Estilo propio, no de plantilla
+En una última pasada se sacaron los recursos que se repiten en cualquier sitio de plantilla y no decían nada de Poppy: etiquetas chiquitas en mayúsculas arriba de cada título, una palabra resaltada en el título principal, frases unidas con puntos al medio, flechas en los links, sellos flotando sobre la foto, manchas de degradé y todo metido en tarjetas iguales. En su lugar:
+
+- **Un solo detalle memorable**: la guirnalda de banderines, sacada de las tortas reales. Es también la única animación que corre sola al cargar la página (`@keyframes colgar`: cada banderín baja del hilo y se hamaca).
+- **Movimiento solo donde suma**: AOS quedó en la galería de cumpleañeros (las fotos entran una tras otra) y en el carousel de trabajos; el resto del sitio no se anima al hacer scroll. El hover de las tarjetas de producto se mantiene porque responde a lo que hace la persona.
+- **Productos como fotos pegadas en la heladera**: marco blanco, cada tarjeta apenas girada (propiedad `rotate`, con un `@for` que lee una lista de giros) y en desktop escalonadas; al pasar el mouse, la tarjeta se endereza y se levanta.
+- **Footer sin las tres columnas de plantilla**: una columna centrada que repite la guirnalda (variante `--clara`, quieta para no sumar otra animación) y el lema en la letra de los títulos.
+- **Pedidos por WhatsApp o Instagram**: al lado de cada botón general de WhatsApp hay uno rosa (el rosa de las tortas, `#B23A67`, 5,7:1 con texto blanco) que abre el chat de Instagram (`ig.me`). Los "Consultá precio" de cada producto siguen por WhatsApp porque mandan el mensaje ya escrito. Entre 992 y 1199 px los botones del menú muestran solo el ícono y el nombre de la red (clases `d-lg-none d-xl-inline` de Bootstrap), para que el menú entre en una fila; el mapa `$breakpoints` suma `menu: 992px`, donde Bootstrap despliega la navbar.
+- **Botones como etiquetas**, como la de las bolsitas de galletitas: esquinas casi rectas, una costura punteada por dentro (`::after` con borde `dashed`) y sombra dura corrida; al hacer clic se "aprietan" contra la sombra.
+- **Fotos impresas**: marco blanco, casi sin redondeo y apenas giradas. La cinta adhesiva va solo en la foto de cada portada y en la tarjeta de cierre (en una última limpieza se sacó del resto para no recargar) (placeholders `%foto-impresa` y `%cinta`, con los bordes de la cinta cortados con `clip-path`).
+- **Animación propia para AOS (`data-aos="revelar"`)**: las fotos de la galería y el carousel aparecen chicas, borrosas y en blanco y negro, y crecen hasta quedar nítidas, como una foto instantánea que se revela.
+- **Menos cajas**: los beneficios, los servicios y los valores pasaron a ser listas con íconos; Contacto destaca WhatsApp (el canal real) y deja Instagram, horarios y entregas como datos.
+- **Íconos como stickers** (círculo blanco con borde y la sombra corrida de los botones) en vez del ícono en círculo pastel de siempre, y **huellitas** dibujadas en SVG en vez de tildes en las listas.
+- **Portadas internas con foto**: cada página tiene su foto impresa pegada con cinta al costado del título, y el borde de abajo de las portadas es **festoneado**, como el copete de crema de las tortas (mixin `borde-festoneado($color, $gota)`, hecho con `radial-gradient`).
+- **Cierre como tarjeta de recomendaciones**: el llamado a pedir es un papel crema con borde punteado y cinta, como la tarjeta que va adentro del box.
+- **Pasos como ticket de pedido**: papel con el borde troquelado (máscara CSS con `radial-gradient`) y los pasos como renglones separados por líneas punteadas.
+- **Detalles**: los nombres de la galería son etiquetitas pegadas en la esquina de cada foto; las flechas del carousel y el bloque de WhatsApp tienen la forma de etiqueta; el menú marca la página actual con un subrayado ondulado dibujado en SVG; algunos títulos de sección van a la izquierda para que no todas las secciones abran igual.
+- **Títulos con la voz de la marca**: "¿Qué le preparamos?", "Cumpleañeros de Poppy", "Lo que cuidamos en cada pedido", en vez de títulos genéricos.
 
 ## 📚 Historial de las pre-entregas
 Las secciones que siguen cuentan qué se hizo en cada pre-entrega, en su momento. Algunos detalles (colores, fotos, clases) cambiaron con el rediseño del proyecto final.

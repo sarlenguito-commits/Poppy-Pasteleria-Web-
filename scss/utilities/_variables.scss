@@ -11,6 +11,7 @@ $color-verde: #3F6B2A;           // botones y links (texto blanco encima: 6,3:1)
 $color-verde-claro: #EAF2DF;     // fondos de íconos y estados activos
 $color-amarillo: #FFF3A0;        // bloques destacados, como la acuarela del logo
 $color-amarillo-fuerte: #F7D74A; // detalles chicos (estrellas, subrayados)
+$color-rosa: #B23A67;            // botón de Instagram: el rosa de las tortas (texto blanco encima: 5,7:1)
 $color-crema: #FFFBEF;           // texto claro sobre el petróleo (footer y WhatsApp)
 $color-blanco: #FFFFFF;
 
@@ -22,10 +23,10 @@ $color-texto-suave: $color-petroleo-suave;
 $color-borde: rgba(33, 57, 67, 0.12);
 
 // Tipografías
-// Bagel Fat One: gruesa y redondeada, como letra horneada (el "Feliz cumple" de los toppers).
-// Tiene un solo grosor: va solo en h1, h2 y los números de los pasos.
+// Paytone One: geométrica y gruesa, con la "o" redonda, como la palabra POPPY del logo.
+// Tiene un solo grosor: va solo en h1, h2, el lema del footer y los números de los pasos.
 // Karla: texto, menú, botones y h3; distinta de la de títulos a propósito.
-$fuente-titulos: 'Bagel Fat One', 'Arial Rounded MT Bold', sans-serif;
+$fuente-titulos: 'Paytone One', 'Arial Rounded MT Bold', sans-serif;
 $fuente-texto: 'Karla', sans-serif;
 
 // Formas
@@ -51,6 +52,8 @@ $transicion-lenta: 0.4s ease;
 // Breakpoints mobile-first: la base (sin media query) es mobile.
 $breakpoints: (
     tablet: 768px,
+    // Donde Bootstrap despliega el menú (navbar-expand-lg): las reglas del menú usan este
+    menu: 992px,
     desktop: 1024px
 );
 

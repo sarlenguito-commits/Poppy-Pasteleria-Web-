@@ -14,10 +14,22 @@
     }
 }
 
+// Etiqueta grande, como los botones: esquinas casi rectas, costura punteada y sombra corrida
 .contacto-whatsapp {
+    position: relative;
     padding: $espaciado * 2;
     background-color: $color-petroleo;
-    border-radius: $radio-grande;
+    border-radius: 10px;
+    box-shadow: 6px 6px 0 $color-verde-hoja;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border: 2px dashed rgba(255, 251, 239, 0.4);
+        border-radius: 6px;
+        pointer-events: none;
+    }
 
     > .bi {
         display: block;

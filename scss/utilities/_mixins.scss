@@ -1,6 +1,7 @@
 // Mixins: bloques que reciben contenido o parámetros.
 // Los bloques fijos están en _extend.scss como placeholders.
 @use "sass:map";
+@use "sass:math";
 @use "sass:color";
 @use "variables" as *;
 
@@ -62,6 +63,25 @@
     border-radius: $radio;
     box-shadow: $sombra-suave;
     padding: $padding;
+}
+
+// Borde de abajo festoneado, como el copete de crema de las tortas: una fila de medialunas
+// del color del bloque que cuelgan sobre lo que sigue. Recibe el color y el ancho de cada "gota".
+@mixin borde-festoneado($color, $gota: 36px) {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: math.div($gota, -2) + 1px;
+        height: math.div($gota, 2);
+        background-image: radial-gradient(circle at 50% 0, $color math.div($gota, 2) - 0.5px, transparent math.div($gota, 2));
+        background-size: $gota math.div($gota, 2);
+        background-repeat: repeat-x;
+        pointer-events: none;
+    }
 }
 
 // Grilla que se adapta: mobile en 1 columna, tablet en $tablet y desktop en $desktop.

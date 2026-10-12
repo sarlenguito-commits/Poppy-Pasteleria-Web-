@@ -2,14 +2,33 @@
 // Con @extend, el CSS se escribe una sola vez y se agrupan los selectores.
 @use "variables" as *;
 
-// Foto con esquinas redondeadas y sombra suave
-%imagen-redondeada {
+// Foto impresa: casi sin redondeo, con marco blanco, como las que se pegan en la heladera
+%foto-impresa {
     width: 100%;
     max-width: none;
     height: 100%;
     object-fit: cover;
-    border-radius: $radio-borde;
-    box-shadow: $sombra-suave;
+    border: 8px solid $color-blanco;
+    border-radius: 3px;
+    box-shadow: $sombra-suave, 0 1px 3px rgba(33, 57, 67, 0.12);
+}
+
+// Pedazo de cinta adhesiva para pegar una foto (se usa en un ::before del contenedor).
+// Los bordes cortados en zigzag con clip-path imitan la cinta cortada con la mano.
+%cinta {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    z-index: 2;
+    width: 120px;
+    height: 32px;
+    margin-left: -60px;
+    background-color: rgba(247, 215, 74, 0.8);
+    clip-path: polygon(0 12%, 5% 0, 10% 10%, 90% 6%, 95% 0, 100% 14%, 100% 88%, 95% 100%, 90% 92%,
+            10% 96%, 5% 100%, 0 90%);
+    transform: rotate(-4deg);
+    pointer-events: none;
 }
 
 // Links verdes con subrayado al pasar el mouse
@@ -36,16 +55,19 @@
     margin: 0;
 }
 
-// Círculo verde claro con un ícono adentro
+// Ícono en un "sticker": círculo blanco con borde y la misma sombra dura de los botones,
+// como los stickers troquelados que van en las tortas
 %circulo-icono {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    width: 54px;
+    height: 54px;
     border-radius: 50%;
-    background-color: $color-verde-claro;
+    background-color: $color-blanco;
+    border: 2px solid $color-petroleo;
+    box-shadow: 3px 3px 0 $color-petroleo;
     color: $color-verde;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     flex-shrink: 0;
 }

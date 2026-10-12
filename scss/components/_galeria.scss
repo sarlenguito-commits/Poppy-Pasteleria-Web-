@@ -18,15 +18,33 @@
         gap: $espaciado;
     }
 
+    // Fotos impresas con marco blanco, cada una apenas girada para un lado distinto.
+    // Se usa la propiedad "rotate" (no "transform") porque AOS anima la entrada con transform.
     figure {
         position: relative;
         margin: 0;
         overflow: hidden;
-        border-radius: $radio-borde;
+        border: 6px solid $color-blanco;
+        border-radius: 3px;
+        box-shadow: $sombra-suave, 0 1px 3px rgba(33, 57, 67, 0.12);
+        transition: rotate $transicion-lenta;
+
+        &:nth-child(odd) {
+            rotate: -1.2deg;
+        }
+
+        &:nth-child(even) {
+            rotate: 1.4deg;
+        }
 
         &:first-child {
             grid-column: span 2;
             grid-row: span 2;
+            rotate: -0.6deg;
+        }
+
+        &:hover {
+            rotate: 0deg;
         }
     }
 
@@ -37,16 +55,23 @@
         transition: transform $transicion-lenta;
     }
 
-    // Nombre de la mascota sobre un degradé, abajo de cada foto
+    // Nombre de la mascota en una etiquetita blanca pegada en la esquina, como el cartel del gorrito
     figcaption {
         position: absolute;
-        inset: auto 0 0 0;
-        padding: 28px 14px 10px;
-        background: linear-gradient(transparent, rgba(33, 57, 67, 0.85));
-        color: $color-crema;
+        left: 10px;
+        bottom: 10px;
+        max-width: calc(100% - 20px);
+        padding: 5px 10px;
+        background-color: $color-blanco;
+        border: 2px solid $color-petroleo;
+        border-radius: 4px;
+        box-shadow: 2px 2px 0 $color-petroleo;
+        color: $color-petroleo;
         font-family: $fuente-texto;
-        font-weight: 600;
-        font-size: 0.95rem;
+        font-weight: 700;
+        font-size: 0.9rem;
+        line-height: 1.2;
+        rotate: -2deg;
     }
 
     figure:hover img {

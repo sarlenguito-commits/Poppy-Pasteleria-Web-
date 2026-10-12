@@ -2,57 +2,68 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// "Cómo pedir" en 3 pasos. Es una secuencia real, por eso lleva números:
-// los pone CSS con un contador, así si se agrega o se saca un paso, se acomodan solos.
-// En desktop, una línea punteada une los números para que se lea como un recorrido.
+// "Cómo pedir" como un ticket de pedido: un papel crema con el borde de arriba y de abajo
+// troquelado, y cada paso como un renglón separado por una línea punteada.
+// La sombra va en el envoltorio (.ticket) porque la máscara del troquelado la recortaría.
+.ticket {
+    max-width: 680px;
+    margin: 0 auto;
+    filter: drop-shadow(0 6px 14px rgba(33, 57, 67, 0.14));
+    rotate: 0.6deg;
+}
+
+// Es una secuencia real, por eso lleva números: los pone CSS con un contador,
+// así si se agrega o se saca un paso, se acomodan solos.
 .pasos {
     @extend %lista-limpia;
-    @include grilla($tablet: 3, $desktop: 3, $gap: $espaciado * 2);
     counter-reset: paso;
+    padding: $espaciado * 2 $espaciado * 1.5;
+    background-color: $color-crema;
+    // Troquelado: medialunas transparentes cada 22 px arriba y abajo
+    $troquel: radial-gradient(circle at 11px 0, transparent 7px, #000 7.5px);
+    -webkit-mask: $troquel top / 22px 51% repeat-x,
+        radial-gradient(circle at 11px 100%, transparent 7px, #000 7.5px) bottom / 22px 51% repeat-x;
+    mask: $troquel top / 22px 51% repeat-x,
+        radial-gradient(circle at 11px 100%, transparent 7px, #000 7.5px) bottom / 22px 51% repeat-x;
+
+    @include desde(tablet) {
+        padding: $espaciado * 2.5 $espaciado * 3;
+    }
 
     li {
-        position: relative;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: $espaciado;
+        align-items: start;
+        padding: $espaciado 0;
         counter-increment: paso;
-        text-align: center;
+
+        & + li {
+            border-top: 2px dashed rgba(33, 57, 67, 0.25);
+        }
 
         &::before {
             content: counter(paso);
-            position: relative;
-            z-index: 1;
+            grid-row: span 2;
             @include flex(row, $justify: center, $align: center);
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 14px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background-color: $color-amarillo;
-            border: 3px solid $color-petroleo;
+            border: 2px solid $color-petroleo;
             color: $color-petroleo;
             font-family: $fuente-titulos;
             font-weight: 400;
-            font-size: 1.6rem;
-        }
-
-        // Tramo de línea hacia el paso siguiente (no en el último)
-        @include desde(tablet) {
-            &:not(:last-child)::after {
-                content: "";
-                position: absolute;
-                top: 28px;
-                left: calc(50% + 40px);
-                width: calc(100% - 80px + #{$espaciado * 2});
-                border-top: 3px dotted $color-petroleo;
-            }
+            font-size: 1.5rem;
         }
     }
 
     h3 {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
+        margin: 4px 0 2px;
     }
 
     p {
-        font-size: 0.96rem;
-        max-width: 28ch;
-        margin-left: auto;
-        margin-right: auto;
+        font-size: 1rem;
     }
 }

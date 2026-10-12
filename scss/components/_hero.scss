@@ -5,10 +5,11 @@
 // Portada del inicio: la guirnalda arriba, el texto a la izquierda
 // y la foto del box de Muna con borde de topper (como los stickers que imprime Ailu)
 .hero {
+    @include borde-festoneado($color-amarillo, $gota: 44px);
     padding-bottom: $espacio-seccion;
     background-color: $color-amarillo;
-    border-radius: 0 0 $radio-grande $radio-grande;
-    overflow: hidden;
+    // clip y no hidden: corta lo que asome a los costados pero deja ver el festón de abajo
+    overflow-x: clip;
 
     @include desde(desktop) {
         padding-bottom: $espacio-seccion-desktop;
@@ -41,14 +42,20 @@
     }
 }
 
+// Foto impresa, girada y pegada con cinta
 .hero-foto {
+    position: relative;
     max-width: 400px;
     margin: 0 auto;
+    transform: rotate(2deg);
+
+    &::before {
+        @extend %cinta;
+    }
 
     img {
-        @extend %imagen-redondeada;
+        @extend %foto-impresa;
         aspect-ratio: 4 / 5;
-        border: 10px solid $color-blanco;
-        transform: rotate(2deg);
+        border-width: 12px;
     }
 }

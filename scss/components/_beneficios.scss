@@ -16,11 +16,14 @@
         align-items: start;
     }
 
+    // El ícono, en el mismo sticker que servicios y valores
     .bi {
+        @extend %circulo-icono;
         grid-row: span 2;
-        font-size: 1.6rem;
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
         line-height: 1;
-        color: $color-verde;
     }
 
     h3 {

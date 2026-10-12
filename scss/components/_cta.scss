@@ -1,20 +1,33 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/extend";
 
-// Cierre de cada página: banda amarilla con el llamado a pedir por WhatsApp
+// Cierre de cada página: la "tarjeta de recomendaciones" que va adentro del box cumpleañero.
+// Un papel crema con borde punteado, apenas girado y pegado con cinta, con el llamado a pedir.
 .cta {
-    padding: $espacio-seccion $espaciado;
-    background-color: $color-amarillo;
-    border-radius: $radio-grande;
+    position: relative;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: $espacio-seccion * 0.75 $espaciado * 1.5;
+    background-color: $color-crema;
+    border: 2px dashed $color-petroleo-suave;
+    border-radius: 6px;
+    box-shadow: $sombra-suave, 0 1px 3px rgba(33, 57, 67, 0.12);
     text-align: center;
+    transform: rotate(-0.8deg);
 
-    // El perro chef del logo, en un círculo arriba del título
+    &::before {
+        @extend %cinta;
+    }
+
+    // El perro chef del logo, como un sticker redondo
     img {
-        width: 96px;
-        height: 96px;
+        width: 88px;
+        height: 88px;
         margin: 0 auto 16px;
         border-radius: 50%;
-        border: 4px solid $color-blanco;
+        border: 3px solid $color-blanco;
+        box-shadow: 3px 3px 0 $color-petroleo;
     }
 
     h2 {
@@ -24,7 +37,7 @@
     }
 
     p {
-        max-width: 48ch;
+        max-width: 46ch;
         margin: 0 auto $espaciado * 1.5;
         color: $color-petroleo;
     }

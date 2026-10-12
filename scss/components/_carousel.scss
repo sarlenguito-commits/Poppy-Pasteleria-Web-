@@ -1,15 +1,15 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Carousel de Bootstrap con los trabajos (fotos verticales 4:5)
+// Carousel de Bootstrap con los trabajos (fotos verticales 4:5): una foto impresa con marco blanco
 .carousel-poppy {
     max-width: 520px;
     margin: 0 auto;
 
     .carousel-inner {
-        border-radius: $radio-grande;
+        border-radius: 3px;
         box-shadow: $sombra-elevada;
-        border: 8px solid $color-blanco;
+        border: 10px solid $color-blanco;
     }
 
     img {
@@ -44,14 +44,16 @@
         opacity: 1;
     }
 
+    // Flechas cuadradas con sombra dura, como los botones etiqueta
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         width: 44px;
         height: 44px;
         background-color: $color-petroleo;
         background-size: 45%;
-        border-radius: 50%;
-        transition: background-color $transicion, transform $transicion;
+        border-radius: 6px;
+        box-shadow: 3px 3px 0 $color-amarillo-fuerte;
+        transition: background-color $transicion, translate $transicion, box-shadow $transicion;
     }
 
     .carousel-control-prev:hover .carousel-control-prev-icon,
@@ -59,7 +61,8 @@
     .carousel-control-prev:focus-visible .carousel-control-prev-icon,
     .carousel-control-next:focus-visible .carousel-control-next-icon {
         background-color: $color-verde;
-        transform: scale(1.1);
+        translate: 2px 2px;
+        box-shadow: 1px 1px 0 $color-amarillo-fuerte;
     }
 
     .carousel-indicators {

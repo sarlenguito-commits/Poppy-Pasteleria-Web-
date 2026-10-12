@@ -30,6 +30,23 @@
     }
 }
 
+// Animación propia para AOS ("revelar"): la foto aparece chica, borrosa y sin color, y crece
+// hasta quedar nítida, como una foto instantánea que se revela. Reemplaza el zoom y el fade-up de AOS.
+// AOS agrega la clase .aos-animate cuando la foto entra en pantalla; si la persona pidió
+// reducir el movimiento, AOS no se inicia y saca los data-aos, así que esto no se aplica.
+[data-aos="revelar"] {
+    opacity: 0;
+    transform: scale(0.88);
+    filter: blur(6px) grayscale(1);
+    transition-property: opacity, transform, filter;
+
+    &.aos-animate {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0) grayscale(0);
+    }
+}
+
 // Cada banderín de la guirnalda baja desde el hilo y se hamaca un poco hasta quedar quieto.
 @keyframes colgar {
     0% {

@@ -1,9 +1,12 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
+@use "../utilities/extend";
 
 // Cada bloque de la página es una .seccion con su .container de Bootstrap adentro
 .seccion {
     padding: $espacio-seccion 0;
+    // Seguro contra el scroll horizontal: con tantas piezas giradas, nada puede asomar a los costados
+    overflow-x: clip;
 
     @include desde(desktop) {
         padding: $espacio-seccion-desktop 0;
@@ -26,15 +29,23 @@
     max-width: $ancho-texto;
     margin: 0 auto $espaciado * 2;
     text-align: center;
+
+    // Variante alineada a la izquierda, para que no todas las secciones abran igual
+    &--izquierda {
+        margin-left: 0;
+        text-align: left;
+    }
 }
 
-// Portada chica de las páginas internas: la guirnalda arriba y el título centrado
+// Portada de las páginas internas: la guirnalda arriba, el título y, al costado,
+// una foto impresa de esa página. Abajo, el borde festoneado como la crema de las tortas.
 .page-hero {
+    @include borde-festoneado($color-amarillo);
     padding-bottom: $espacio-seccion;
     background-color: $color-amarillo;
-    border-radius: 0 0 $radio-grande $radio-grande;
     text-align: center;
-    overflow: hidden;
+    // clip y no hidden: corta lo que asome a los costados pero deja ver el festón de abajo
+    overflow-x: clip;
 
     .container {
         max-width: 760px;
@@ -52,5 +63,49 @@
         .container {
             padding-top: $espaciado * 2;
         }
+    }
+}
+
+// Variante con foto: en desktop, texto a la izquierda y la foto a la derecha
+.page-hero-grilla {
+    display: grid;
+    gap: $espaciado * 2;
+    align-items: center;
+
+    .page-hero & {
+        max-width: 1100px;
+    }
+
+    @include desde(tablet) {
+        grid-template-columns: 1.4fr 1fr;
+        text-align: left;
+
+        .chips {
+            justify-content: flex-start;
+        }
+    }
+}
+
+.page-hero-foto {
+    position: relative;
+    // En celular, chica (no tiene que empujar el contenido hacia abajo)
+    width: min(190px, 52%);
+    margin: 0 auto;
+    transform: rotate(3deg);
+
+    &::before {
+        @extend %cinta;
+        width: 90px;
+        margin-left: -45px;
+    }
+
+    img {
+        @extend %foto-impresa;
+        aspect-ratio: 4 / 5;
+    }
+
+    @include desde(tablet) {
+        width: 100%;
+        max-width: 300px;
     }
 }

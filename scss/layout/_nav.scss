@@ -24,7 +24,7 @@
     .navbar-collapse {
         padding: 12px 0;
 
-        @include desde(desktop) {
+        @include desde(menu) {
             padding: 0;
         }
     }
@@ -33,32 +33,43 @@
         gap: 4px;
 
         // El menú queda centrado entre el logo y el botón de WhatsApp
-        @include desde(desktop) {
+        @include desde(menu) {
             margin: 0 auto;
             gap: 6px;
         }
     }
 
+    // Los links llevan abajo una línea ondulada, como dibujada a mano (SVG).
+    // Al pasar el mouse aparece; en la página actual queda fija y en verde (6:1).
     .nav-link {
         font-family: $fuente-texto;
         font-weight: 500;
         font-size: 1.05rem;
         color: $color-petroleo;
-        padding: 8px 16px;
-        border-radius: $radio-pildora;
-        transition: background-color $transicion, color $transicion;
+        padding: 8px 14px 12px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 Q8 1 15 4.5 T30 4.5 T45 4 T59 4.5' fill='none' stroke='%233F6B2A' stroke-width='2.2' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: center bottom 2px;
+        background-size: 0 8px;
+        transition: color $transicion, background-size $transicion-lenta;
 
         &:hover,
         &:focus-visible {
-            background-color: $color-verde-claro;
             color: $color-verde;
+            background-size: calc(100% - 24px) 8px;
         }
 
-        // Página actual: píldora verde claro y texto verde (6:1)
         &.active {
-            background-color: $color-verde-claro;
             color: $color-verde;
-            font-weight: 600;
+            font-weight: 700;
+            background-size: calc(100% - 24px) 8px;
+        }
+
+        // Entre 992 y 1199 px entran justo el logo, los 5 links y los 2 botones: menos aire entre links
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            padding-left: 8px;
+            padding-right: 8px;
+            font-size: 1rem;
         }
     }
 
@@ -66,8 +77,13 @@
     .boton {
         margin-top: 8px;
 
-        @include desde(desktop) {
+        @include desde(menu) {
             margin-top: 0;
+        }
+
+        // El de Instagram, al lado del de WhatsApp
+        & + .boton {
+            margin-left: 10px;
         }
     }
 }

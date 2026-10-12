@@ -1,7 +1,7 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Bagel Fat One para los títulos grandes (h1 y h2) y Karla para todo lo demás.
+// Paytone One para los títulos grandes (h1 y h2) y Karla para todo lo demás.
 h1,
 h2,
 h3,
@@ -11,12 +11,12 @@ h4 {
     margin: 0 0 0.5em;
 }
 
-// Bagel tiene un solo grosor (400): si se le pidiera negrita, el navegador la engordaría a la fuerza
+// Paytone One tiene un solo grosor (400): si se le pidiera negrita, el navegador la engordaría a la fuerza
 h1,
 h2 {
     font-family: $fuente-titulos;
     font-weight: 400;
-    letter-spacing: 0.01em;
+    letter-spacing: -0.005em;
 }
 
 // clamp(mínimo, ideal, máximo): el tamaño crece con el ancho de la pantalla
