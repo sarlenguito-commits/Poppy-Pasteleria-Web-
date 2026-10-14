@@ -9,6 +9,10 @@ $color-amarillo: #FFF3A0;
 $color-amarillo-fuerte: #F7D74A;
 $color-rosa: #B23A67;
 $color-crema: #FFFBEF;
+$color-verde-oscuro: #375E25;
+$color-rosa-oscuro: #9D335B;
+$color-petroleo-oscuro: #1D323B;
+$color-gris-claro: #E0E0E0;
 $color-blanco: #FFFFFF;
 
 // Usos
@@ -41,11 +45,9 @@ $ancho-texto: 62ch;
 $transicion: 0.2s ease;
 $transicion-lenta: 0.4s ease;
 
-$breakpoints: (
-    tablet: 768px,
-    menu: 992px,
-    desktop: 1024px
-);
+$tablet: 768px;
+$menu: 992px;
+$desktop: 1024px;
 
 // Animaciones
 $duracion-animacion: 0.8s;

@@ -1,6 +1,3 @@
-@use "sass:map";
-@use "sass:math";
-@use "sass:color";
 @use "variables" as *;
 
 @mixin flex($direccion: row, $justify: null, $align: null, $gap: null) {
@@ -11,16 +8,6 @@
     gap: $gap;
 }
 
-@mixin desde($nombre) {
-    @if not map.has-key($breakpoints, $nombre) {
-        @error "El breakpoint '#{$nombre}' no existe. Opciones: #{map.keys($breakpoints)}";
-    }
-
-    @media (min-width: map.get($breakpoints, $nombre)) {
-        @content;
-    }
-}
-
 @mixin animar($nombre, $duracion: $duracion-animacion, $retraso: 0s, $repetir: 1) {
     animation: $nombre $duracion ease-out $retraso $repetir both;
 
@@ -29,21 +16,16 @@
     }
 }
 
-@mixin boton($fondo, $texto, $borde: $fondo) {
+@mixin boton($fondo, $texto, $hover, $borde: $fondo, $borde-hover: $hover) {
     background-color: $fondo;
     color: $texto;
     border: 2px solid $borde;
 
     &:hover,
     &:focus-visible {
-        @if $fondo == transparent {
-            background-color: $borde;
-            color: $color-blanco;
-        } @else {
-            background-color: color.scale($fondo, $lightness: -12%);
-            border-color: color.scale($borde, $lightness: -12%);
-            color: $texto;
-        }
+        background-color: $hover;
+        border-color: $borde-hover;
+        color: $texto;
     }
 }
 
@@ -63,25 +45,25 @@
         position: absolute;
         left: 0;
         right: 0;
-        bottom: math.div($gota, -2) + 1px;
-        height: math.div($gota, 2);
-        background-image: radial-gradient(circle at 50% 0, $color math.div($gota, 2) - 0.5px, transparent math.div($gota, 2));
-        background-size: $gota math.div($gota, 2);
+        bottom: $gota * -0.5 + 1px;
+        height: $gota * 0.5;
+        background-image: radial-gradient(circle at 50% 0, $color $gota * 0.5 - 0.5px, transparent $gota * 0.5);
+        background-size: $gota $gota * 0.5;
         background-repeat: repeat-x;
         pointer-events: none;
     }
 }
 
-@mixin grilla($tablet: 2, $desktop: 3, $gap: $espaciado * 1.5) {
+@mixin grilla($columnas-tablet: 2, $columnas-desktop: 3, $gap: $espaciado * 1.5) {
     display: grid;
     gap: $gap;
     grid-template-columns: 1fr;
 
-    @include desde(tablet) {
-        grid-template-columns: repeat($tablet, 1fr);
+    @media (min-width: $tablet) {
+        grid-template-columns: repeat($columnas-tablet, 1fr);
     }
 
-    @include desde(desktop) {
-        grid-template-columns: repeat($desktop, 1fr);
+    @media (min-width: $desktop) {
+        grid-template-columns: repeat($columnas-desktop, 1fr);
     }
 }

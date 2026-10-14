@@ -7,7 +7,7 @@
     gap: $espaciado * 2;
     align-items: center;
 
-    @include desde(desktop) {
+    @media (min-width: $desktop) {
         grid-template-columns: 1fr 1fr;
         gap: $espaciado * 4;
 
@@ -19,7 +19,7 @@
     & + & {
         margin-top: $espacio-seccion;
 
-        @include desde(desktop) {
+        @media (min-width: $desktop) {
             margin-top: $espacio-seccion-desktop;
         }
     }
@@ -47,7 +47,7 @@
         box-shadow: $sombra-elevada;
         transform: rotate(5deg);
 
-        @include desde(tablet) {
+        @media (min-width: $tablet) {
             right: -12px;
         }
     }

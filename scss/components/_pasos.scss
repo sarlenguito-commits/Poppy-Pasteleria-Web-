@@ -20,7 +20,7 @@
     mask: $troquel top / 22px 51% repeat-x,
         radial-gradient(circle at 11px 100%, transparent 7px, #000 7.5px) bottom / 22px 51% repeat-x;
 
-    @include desde(tablet) {
+    @media (min-width: $tablet) {
         padding: $espaciado * 2.5 $espaciado * 3;
     }
 

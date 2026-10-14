@@ -1,15 +1,10 @@
-@use "sass:math";
-@use "sass:list";
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-
-$banderines: 14;
 $caida: 22px;
 $ancho-banderin: clamp(20px, 4vw, 52px);
 $alto-banderin: clamp(26px, 4.8vw, 60px);
 $margen-lateral: 3%;
-$colores-banderin: ($color-petroleo, $color-blanco, $color-verde-hoja, $color-amarillo-fuerte);
 
 .guirnalda {
     position: relative;
@@ -45,15 +40,88 @@ $colores-banderin: ($color-petroleo, $color-blanco, $color-verde-hoja, $color-am
         }
     }
 
-    @for $i from 1 through $banderines {
-        $medio: math.div($banderines + 1, 2);
-        $distancia: math.div($i - $medio, $medio - 1);
+    span:nth-child(1) {
+        background-color: $color-petroleo;
+        margin-top: 0;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.05s);
+    }
 
-        span:nth-child(#{$i}) {
-            background-color: list.nth($colores-banderin, ($i - 1) % list.length($colores-banderin) + 1);
-            margin-top: $caida * (1 - $distancia * $distancia);
-            @include animar(colgar, $duracion: 0.7s, $retraso: $i * 0.05s);
-        }
+    span:nth-child(2) {
+        background-color: $color-blanco;
+        margin-top: 6.25px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.1s);
+    }
+
+    span:nth-child(3) {
+        background-color: $color-verde-hoja;
+        margin-top: 11.46px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.15s);
+    }
+
+    span:nth-child(4) {
+        background-color: $color-amarillo-fuerte;
+        margin-top: 15.62px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.2s);
+    }
+
+    span:nth-child(5) {
+        background-color: $color-petroleo;
+        margin-top: 18.75px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.25s);
+    }
+
+    span:nth-child(6) {
+        background-color: $color-blanco;
+        margin-top: 20.83px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.3s);
+    }
+
+    span:nth-child(7) {
+        background-color: $color-verde-hoja;
+        margin-top: 21.87px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.35s);
+    }
+
+    span:nth-child(8) {
+        background-color: $color-amarillo-fuerte;
+        margin-top: 21.87px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.4s);
+    }
+
+    span:nth-child(9) {
+        background-color: $color-petroleo;
+        margin-top: 20.83px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.45s);
+    }
+
+    span:nth-child(10) {
+        background-color: $color-blanco;
+        margin-top: 18.75px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.5s);
+    }
+
+    span:nth-child(11) {
+        background-color: $color-verde-hoja;
+        margin-top: 15.62px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.55s);
+    }
+
+    span:nth-child(12) {
+        background-color: $color-amarillo-fuerte;
+        margin-top: 11.46px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.6s);
+    }
+
+    span:nth-child(13) {
+        background-color: $color-petroleo;
+        margin-top: 6.25px;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.65s);
+    }
+
+    span:nth-child(14) {
+        background-color: $color-blanco;
+        margin-top: 0;
+        @include animar(colgar, $duracion: 0.7s, $retraso: 0.7s);
     }
 
     &--clara span:nth-child(n) {

@@ -1,14 +1,13 @@
-@use "sass:list";
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
 // Grillas
 .grilla-productos {
-    @include grilla($tablet: 2, $desktop: 4, $gap: $espaciado * 2 $espaciado * 1.5);
+    @include grilla($columnas-tablet: 2, $columnas-desktop: 4, $gap: $espaciado * 2 $espaciado * 1.5);
     padding: 8px 10px $espaciado;
 
-    @include desde(desktop) {
+    @media (min-width: $desktop) {
         > :nth-child(even) {
             margin-top: $espaciado * 2.5;
         }
@@ -16,10 +15,8 @@
 }
 
 .grilla-servicios {
-    @include grilla($tablet: 2, $desktop: 2, $gap: $espaciado * 2);
+    @include grilla($columnas-tablet: 2, $columnas-desktop: 2, $gap: $espaciado * 2);
 }
-
-$giros-producto: (-2.5deg, 1.5deg, -1deg, 2deg);
 
 .producto-card {
     @include flex(column);
@@ -32,13 +29,35 @@ $giros-producto: (-2.5deg, 1.5deg, -1deg, 2deg);
     text-decoration: none;
     transition: translate $transicion-lenta, rotate $transicion-lenta, box-shadow $transicion-lenta;
 
-    @for $i from 1 through 4 {
-        &:nth-child(#{$i}) {
-            rotate: list.nth($giros-producto, $i) * 0.5;
+    &:nth-child(1) {
+        rotate: -1.25deg;
 
-            @include desde(tablet) {
-                rotate: list.nth($giros-producto, $i);
-            }
+        @media (min-width: $tablet) {
+            rotate: -2.5deg;
+        }
+    }
+
+    &:nth-child(2) {
+        rotate: 0.75deg;
+
+        @media (min-width: $tablet) {
+            rotate: 1.5deg;
+        }
+    }
+
+    &:nth-child(3) {
+        rotate: -0.5deg;
+
+        @media (min-width: $tablet) {
+            rotate: -1deg;
+        }
+    }
+
+    &:nth-child(4) {
+        rotate: 1deg;
+
+        @media (min-width: $tablet) {
+            rotate: 2deg;
         }
     }
 

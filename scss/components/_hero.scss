@@ -8,7 +8,7 @@
     background-color: $color-amarillo;
     overflow-x: clip;
 
-    @include desde(desktop) {
+    @media (min-width: $desktop) {
         padding-bottom: $espacio-seccion-desktop;
     }
 }
@@ -19,7 +19,7 @@
     align-items: center;
     padding-top: $espaciado;
 
-    @include desde(desktop) {
+    @media (min-width: $desktop) {
         grid-template-columns: 1.1fr 0.9fr;
         gap: $espaciado * 3;
         padding-top: $espaciado * 2;

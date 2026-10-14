@@ -21,7 +21,7 @@
     .navbar-collapse {
         padding: 12px 0;
 
-        @include desde(menu) {
+        @media (min-width: $menu) {
             padding: 0;
         }
     }
@@ -29,7 +29,7 @@
     .navbar-nav {
         gap: 4px;
 
-        @include desde(menu) {
+        @media (min-width: $menu) {
             margin: 0 auto;
             gap: 6px;
         }
@@ -69,7 +69,7 @@
     .boton {
         margin-top: 8px;
 
-        @include desde(menu) {
+        @media (min-width: $menu) {
             margin-top: 0;
         }
 

@@ -4,7 +4,7 @@
 
 .beneficios {
     @extend %lista-limpia;
-    @include grilla($tablet: 2, $desktop: 4, $gap: $espaciado * 1.5 $espaciado);
+    @include grilla($columnas-tablet: 2, $columnas-desktop: 4, $gap: $espaciado * 1.5 $espaciado);
 
     li {
         display: grid;

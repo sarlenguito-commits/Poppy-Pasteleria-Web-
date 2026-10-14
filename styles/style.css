@@ -526,8 +526,8 @@ strong {
   border: 2px solid #3F6B2A;
 }
 .boton--primario:hover, .boton--primario:focus-visible {
-  background-color: rgb(21.7411764706%, 36.9254901961%, 14.4941176471%);
-  border-color: rgb(21.7411764706%, 36.9254901961%, 14.4941176471%);
+  background-color: #375E25;
+  border-color: #375E25;
   color: #FFFFFF;
 }
 .boton--primario::after {
@@ -544,8 +544,8 @@ strong {
   border: 2px solid #B23A67;
 }
 .boton--instagram:hover, .boton--instagram:focus-visible {
-  background-color: rgb(61.4274509804%, 20.0156862745%, 35.5450980392%);
-  border-color: rgb(61.4274509804%, 20.0156862745%, 35.5450980392%);
+  background-color: #9D335B;
+  border-color: #9D335B;
   color: #FFFFFF;
 }
 .boton--instagram::after {
@@ -562,8 +562,8 @@ strong {
   border: 2px solid #213943;
 }
 .boton--secundario:hover, .boton--secundario:focus-visible {
-  background-color: rgb(88%, 88%, 88%);
-  border-color: rgb(11.3882352941%, 19.6705882353%, 23.1215686275%);
+  background-color: #E0E0E0;
+  border-color: #1D323B;
   color: #213943;
 }
 .boton--oscuro {
@@ -572,8 +572,8 @@ strong {
   border: 2px solid #213943;
 }
 .boton--oscuro:hover, .boton--oscuro:focus-visible {
-  background-color: rgb(11.3882352941%, 19.6705882353%, 23.1215686275%);
-  border-color: rgb(11.3882352941%, 19.6705882353%, 23.1215686275%);
+  background-color: #1D323B;
+  border-color: #1D323B;
   color: #FFFBEF;
 }
 .boton--oscuro {
@@ -641,7 +641,7 @@ strong {
 }
 .guirnalda span:nth-child(1) {
   background-color: #213943;
-  margin-top: 0px;
+  margin-top: 0;
   animation: colgar 0.7s ease-out 0.05s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -651,7 +651,7 @@ strong {
 }
 .guirnalda span:nth-child(2) {
   background-color: #FFFFFF;
-  margin-top: 6.2485207101px;
+  margin-top: 6.25px;
   animation: colgar 0.7s ease-out 0.1s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -661,7 +661,7 @@ strong {
 }
 .guirnalda span:nth-child(3) {
   background-color: #80A858;
-  margin-top: 11.4556213018px;
+  margin-top: 11.46px;
   animation: colgar 0.7s ease-out 0.15s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -671,7 +671,7 @@ strong {
 }
 .guirnalda span:nth-child(4) {
   background-color: #F7D74A;
-  margin-top: 15.6213017751px;
+  margin-top: 15.62px;
   animation: colgar 0.7s ease-out 0.2s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -681,7 +681,7 @@ strong {
 }
 .guirnalda span:nth-child(5) {
   background-color: #213943;
-  margin-top: 18.7455621302px;
+  margin-top: 18.75px;
   animation: colgar 0.7s ease-out 0.25s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -691,7 +691,7 @@ strong {
 }
 .guirnalda span:nth-child(6) {
   background-color: #FFFFFF;
-  margin-top: 20.8284023669px;
+  margin-top: 20.83px;
   animation: colgar 0.7s ease-out 0.3s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -701,7 +701,7 @@ strong {
 }
 .guirnalda span:nth-child(7) {
   background-color: #80A858;
-  margin-top: 21.8698224852px;
+  margin-top: 21.87px;
   animation: colgar 0.7s ease-out 0.35s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -711,7 +711,7 @@ strong {
 }
 .guirnalda span:nth-child(8) {
   background-color: #F7D74A;
-  margin-top: 21.8698224852px;
+  margin-top: 21.87px;
   animation: colgar 0.7s ease-out 0.4s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -721,7 +721,7 @@ strong {
 }
 .guirnalda span:nth-child(9) {
   background-color: #213943;
-  margin-top: 20.8284023669px;
+  margin-top: 20.83px;
   animation: colgar 0.7s ease-out 0.45s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -731,7 +731,7 @@ strong {
 }
 .guirnalda span:nth-child(10) {
   background-color: #FFFFFF;
-  margin-top: 18.7455621302px;
+  margin-top: 18.75px;
   animation: colgar 0.7s ease-out 0.5s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -741,7 +741,7 @@ strong {
 }
 .guirnalda span:nth-child(11) {
   background-color: #80A858;
-  margin-top: 15.6213017751px;
+  margin-top: 15.62px;
   animation: colgar 0.7s ease-out 0.55s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -751,7 +751,7 @@ strong {
 }
 .guirnalda span:nth-child(12) {
   background-color: #F7D74A;
-  margin-top: 11.4556213018px;
+  margin-top: 11.46px;
   animation: colgar 0.7s ease-out 0.6s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -761,7 +761,7 @@ strong {
 }
 .guirnalda span:nth-child(13) {
   background-color: #213943;
-  margin-top: 6.2485207101px;
+  margin-top: 6.25px;
   animation: colgar 0.7s ease-out 0.65s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -771,7 +771,7 @@ strong {
 }
 .guirnalda span:nth-child(14) {
   background-color: #FFFFFF;
-  margin-top: 0px;
+  margin-top: 0;
   animation: colgar 0.7s ease-out 0.7s 1 both;
 }
 @media (prefers-reduced-motion: reduce) {

@@ -24,7 +24,7 @@
             }
         }
 
-        @include desde(desktop) {
+        @media (min-width: $desktop) {
             height: 46px;
         }
     }

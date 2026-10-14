@@ -32,7 +32,7 @@
     }
 
     &--primario {
-        @include boton($color-verde, $color-blanco);
+        @include boton($color-verde, $color-blanco, $color-verde-oscuro);
 
         &::after {
             content: "";
@@ -45,7 +45,7 @@
     }
 
     &--instagram {
-        @include boton($color-rosa, $color-blanco);
+        @include boton($color-rosa, $color-blanco, $color-rosa-oscuro);
 
         &::after {
             content: "";
@@ -58,11 +58,11 @@
     }
 
     &--secundario {
-        @include boton($color-blanco, $color-petroleo, $color-petroleo);
+        @include boton($color-blanco, $color-petroleo, $color-gris-claro, $color-petroleo, $color-petroleo-oscuro);
     }
 
     &--oscuro {
-        @include boton($color-petroleo, $color-crema);
+        @include boton($color-petroleo, $color-crema, $color-petroleo-oscuro);
         box-shadow: 4px 4px 0 $color-verde-hoja;
 
         &:hover {
@@ -79,7 +79,7 @@
 .grupo-botones {
     @include flex(column, $gap: 14px);
 
-    @include desde(tablet) {
+    @media (min-width: $tablet) {
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -87,7 +87,7 @@
     &--centrado {
         align-items: center;
 
-        @include desde(tablet) {
+        @media (min-width: $tablet) {
             justify-content: center;
         }
     }

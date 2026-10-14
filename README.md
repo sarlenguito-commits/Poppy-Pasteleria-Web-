@@ -11,7 +11,7 @@ Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube
 - HTML5 semántico
 - CSS3 (variables personalizadas, Flexbox, Grid)
 - Bootstrap 5 (navbar responsive, carousel, accordion y sistema de grillas) + Bootstrap Icons
-- SCSS (Sass): partials, variables, mapas, mixins con parámetros, `@extend` y nesting, compilado a CSS
+- SCSS (Sass): partials, variables, mixins con parámetros, `@extend` y nesting, compilado a CSS
 - Animaciones: `@keyframes` y `transition` propios + [AOS](https://michalsnik.github.io/aos/) para animaciones al hacer scroll
 - SEO: meta description y keywords por página, Open Graph, canonical, `sitemap.xml` y `robots.txt`
 - Tipografías de Google Fonts: Paytone One (títulos) y Karla (texto)
@@ -23,7 +23,7 @@ Desplegado en **Netlify**, conectado a este repositorio: cada cambio que se sube
 - `pages/servicios.html` — box cumpleañero, otros servicios y preguntas frecuentes (accordion)
 - `pages/contacto.html` — WhatsApp, Instagram, horarios, entregas y qué datos tener a mano para pedir
 - `scss/` — código fuente de los estilos, organizado en partials:
-  - `utilities/` — variables de la marca y mapa de breakpoints (`_variables.scss`), mixins con parámetros (`_mixins.scss`) y placeholders para `@extend` (`_extend.scss`)
+  - `utilities/` — variables de la marca y de los breakpoints (`_variables.scss`), mixins con parámetros (`_mixins.scss`) y placeholders para `@extend` (`_extend.scss`)
   - `base/` — reset, accesibilidad (foco visible y "saltar al contenido"), tipografía y `@keyframes` (`_animaciones.scss`)
   - `layout/` — header, nav, secciones (incluye la portada chica de las páginas internas) y footer
   - `components/` — botones, hero, beneficios, cards, galería, carousel, pasos, destacado (foto + texto), contacto, acordeón y cta
@@ -51,7 +51,7 @@ Diseño mobile-first en las 5 páginas, con tres medidas:
 - **Tablet** desde `768px`
 - **Escritorio** desde `1024px`
 
-Las media queries se escriben con el mixin `desde()`, que lee el mapa `$breakpoints`: `@include desde(tablet) { ... }`. Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal (en celular los beneficios van en una columna).
+Las media queries usan las variables de los breakpoints: `@media (min-width: $tablet) { ... }` (`$tablet`, `$menu` y `$desktop`). Los tamaños de los títulos usan `clamp()` para crecer con la pantalla. Probado en 320, 360, 390, 768, 1024 y 1440px sin scroll horizontal (en celular los beneficios van en una columna).
 
 ## 🏁 Proyecto final: rediseño con la identidad real de la marca
 
@@ -74,7 +74,7 @@ Para la entrega final el sitio se rediseñó completo con los logos y las fotos 
 - **Contenido nuevo**: portada con el lema "Galletas que mueven colitas", beneficios con íconos, tarjetas de productos, galería "Cumpleañeros de Poppy" en mosaico, pasos para pedir, box cumpleañero, Chocopop (galletas de algarroba), la historia de Ailu y Poppy y botones de WhatsApp con el mensaje ya escrito según el producto.
 - **Header fijo** (`sticky-top` de Bootstrap) con el logo horizontal, el menú centrado y el botón "Pedí por WhatsApp". Footer en una sola columna centrada: la guirnalda en colores claros, el logo, el lema, el botón de WhatsApp, los links y los datos del negocio (el sitio cierra igual que abre).
 - **Componentes de Bootstrap**: navbar colapsable, carousel (galería de trabajos), accordion (preguntas frecuentes) y grilla. Los colores del accordion se cambian pisando sus variables CSS (`--bs-accordion-*`).
-- **SCSS**: mixins con parámetros nuevos — `boton($fondo, $texto, $borde)`, `tarjeta($padding, $radio)` y `grilla($tablet, $desktop, $gap)` — y placeholders `%foto-impresa`, `%cinta`, `%link-acento`, `%circulo-icono` y `%lista-limpia`. Los pasos de "Cómo pedir" se numeran con un **contador de CSS** (`counter-reset` / `counter-increment`). La guirnalda (`components/_guirnalda.scss`) usa un bucle **`@for`** que le da a cada banderín su color, su retraso y su altura sobre una curva calculada con **`sass:math`**; el hilo es una curva SVG con la misma forma.
+- **SCSS**: mixins con parámetros nuevos — `boton($fondo, $texto, $hover, $borde, $borde-hover)`, `tarjeta($padding, $radio)` y `grilla($columnas-tablet, $columnas-desktop, $gap)` — y placeholders `%foto-impresa`, `%cinta`, `%link-acento`, `%circulo-icono` y `%lista-limpia`. Los pasos de "Cómo pedir" se numeran con un **contador de CSS** (`counter-reset` / `counter-increment`). La guirnalda (`components/_guirnalda.scss`) tiene una regla por banderín (`span:nth-child(1)` a `(14)`) con su color, su altura sobre la curva y el retraso de la animación; el hilo es una curva SVG con la misma forma.
 - **Imágenes**: logo horizontal recortado y con fondo transparente, favicon con la cabeza del perro chef, fotos sin los datos ocultos del celular (EXIF), comprimidas y en dos tamaños con `srcset` y `sizes`, para que el celular descargue la chica. Las fotos de stock se sacaron.
 - **Accesibilidad**: contraste medido con la fórmula de WCAG — texto 12,1:1, texto secundario 6,5:1, botones verdes 6,3:1 (el verde del logo da 2,65:1, así que se usa solo como decoración). Link "Saltar al contenido" para teclado, foco visible en todos los elementos y `alt` descriptivo en cada foto.
 - **Detalle técnico**: las tarjetas se levantan al pasar el mouse con la propiedad `translate` y no con `transform`, porque AOS anima con `transform` y una pisaría a la otra.
@@ -85,9 +85,9 @@ En una última pasada se sacaron los recursos que se repiten en cualquier sitio 
 
 - **Un solo detalle memorable**: la guirnalda de banderines, sacada de las tortas reales. Es también la única animación que corre sola al cargar la página (`@keyframes colgar`: cada banderín baja del hilo y se hamaca).
 - **Movimiento solo donde suma**: AOS quedó en la galería de cumpleañeros (las fotos entran una tras otra) y en el carousel de trabajos; el resto del sitio no se anima al hacer scroll. El hover de las tarjetas de producto se mantiene porque responde a lo que hace la persona.
-- **Productos como fotos pegadas en la heladera**: marco blanco, cada tarjeta apenas girada (propiedad `rotate`, con un `@for` que lee una lista de giros) y en desktop escalonadas; al pasar el mouse, la tarjeta se endereza y se levanta.
+- **Productos como fotos pegadas en la heladera**: marco blanco, cada tarjeta apenas girada (propiedad `rotate`, un giro distinto para cada una) y en desktop escalonadas; al pasar el mouse, la tarjeta se endereza y se levanta.
 - **Footer sin las tres columnas de plantilla**: una columna centrada que repite la guirnalda (variante `--clara`, quieta para no sumar otra animación) y el lema en la letra de los títulos.
-- **Pedidos por WhatsApp o Instagram**: al lado de cada botón general de WhatsApp hay uno rosa (el rosa de las tortas, `#B23A67`, 5,7:1 con texto blanco) que abre el chat de Instagram (`ig.me`). Los "Consultá precio" de cada producto siguen por WhatsApp porque mandan el mensaje ya escrito. Entre 992 y 1199 px los botones del menú muestran solo el ícono y el nombre de la red (clases `d-lg-none d-xl-inline` de Bootstrap), para que el menú entre en una fila; el mapa `$breakpoints` suma `menu: 992px`, donde Bootstrap despliega la navbar.
+- **Pedidos por WhatsApp o Instagram**: al lado de cada botón general de WhatsApp hay uno rosa (el rosa de las tortas, `#B23A67`, 5,7:1 con texto blanco) que abre el chat de Instagram (`ig.me`). Los "Consultá precio" de cada producto siguen por WhatsApp porque mandan el mensaje ya escrito. Entre 992 y 1199 px los botones del menú muestran solo el ícono y el nombre de la red (clases `d-lg-none d-xl-inline` de Bootstrap), para que el menú entre en una fila; la variable `$menu: 992px` marca el ancho donde Bootstrap despliega la navbar.
 - **Botones como etiquetas**, como la de las bolsitas de galletitas: esquinas casi rectas, una costura punteada por dentro (`::after` con borde `dashed`) y sombra dura corrida; al hacer clic se "aprietan" contra la sombra.
 - **Fotos impresas**: marco blanco, casi sin redondeo y apenas giradas. La cinta adhesiva va solo en la foto de cada portada y en la tarjeta de cierre (en una última limpieza se sacó del resto para no recargar) (placeholders `%foto-impresa` y `%cinta`, con los bordes de la cinta cortados con `clip-path`).
 - **Animación propia para AOS (`data-aos="revelar"`)**: las fotos de la galería y el carousel aparecen chicas, borrosas y en blanco y negro, y crecen hasta quedar nítidas, como una foto instantánea que se revela.
