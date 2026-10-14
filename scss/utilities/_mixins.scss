@@ -1,11 +1,8 @@
-// Mixins: bloques que reciben contenido o parámetros.
-// Los bloques fijos están en _extend.scss como placeholders.
 @use "sass:map";
 @use "sass:math";
 @use "sass:color";
 @use "variables" as *;
 
-// Flexbox con parámetros. Los que quedan en null no se escriben en el CSS.
 @mixin flex($direccion: row, $justify: null, $align: null, $gap: null) {
     display: flex;
     flex-direction: $direccion;
@@ -14,8 +11,6 @@
     gap: $gap;
 }
 
-// Media query mobile-first a partir de un breakpoint del mapa $breakpoints.
-// Uso: @include desde(tablet) { ... } o @include desde(desktop) { ... }
 @mixin desde($nombre) {
     @if not map.has-key($breakpoints, $nombre) {
         @error "El breakpoint '#{$nombre}' no existe. Opciones: #{map.keys($breakpoints)}";
@@ -26,8 +21,6 @@
     }
 }
 
-// Aplica una animación de base/_animaciones.scss con duración y retraso configurables.
-// Si la persona pidió reducir el movimiento en su sistema, no se anima.
 @mixin animar($nombre, $duracion: $duracion-animacion, $retraso: 0s, $repetir: 1) {
     animation: $nombre $duracion ease-out $retraso $repetir both;
 
@@ -36,8 +29,6 @@
     }
 }
 
-// Botón con forma de píldora. Recibe el fondo, el texto y el borde;
-// el hover oscurece el fondo un 12% (si es transparente, se rellena con el borde).
 @mixin boton($fondo, $texto, $borde: $fondo) {
     background-color: $fondo;
     color: $texto;
@@ -56,7 +47,6 @@
     }
 }
 
-// Tarjeta blanca con borde y sombra suave. El padding y el radio son configurables.
 @mixin tarjeta($padding: $espaciado, $radio: $radio-borde) {
     background-color: $color-blanco;
     border: 1px solid $color-borde;
@@ -65,8 +55,6 @@
     padding: $padding;
 }
 
-// Borde de abajo festoneado, como el copete de crema de las tortas: una fila de medialunas
-// del color del bloque que cuelgan sobre lo que sigue. Recibe el color y el ancho de cada "gota".
 @mixin borde-festoneado($color, $gota: 36px) {
     position: relative;
 
@@ -84,7 +72,6 @@
     }
 }
 
-// Grilla que se adapta: mobile en 1 columna, tablet en $tablet y desktop en $desktop.
 @mixin grilla($tablet: 2, $desktop: 3, $gap: $espaciado * 1.5) {
     display: grid;
     gap: $gap;

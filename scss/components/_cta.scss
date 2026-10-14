@@ -2,8 +2,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Cierre de cada página: la "tarjeta de recomendaciones" que va adentro del box cumpleañero.
-// Un papel crema con borde punteado, apenas girado y pegado con cinta, con el llamado a pedir.
 .cta {
     position: relative;
     max-width: 760px;
@@ -20,7 +18,6 @@
         @extend %cinta;
     }
 
-    // El perro chef del logo, como un sticker redondo
     img {
         width: 88px;
         height: 88px;

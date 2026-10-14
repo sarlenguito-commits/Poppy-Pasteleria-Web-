@@ -2,49 +2,40 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Cada bloque de la página es una .seccion con su .container de Bootstrap adentro
 .seccion {
     padding: $espacio-seccion 0;
-    // Seguro contra el scroll horizontal: con tantas piezas giradas, nada puede asomar a los costados
     overflow-x: clip;
 
     @include desde(desktop) {
         padding: $espacio-seccion-desktop 0;
     }
 
-    // Variante amarilla, como la acuarela del logo
     &--amarilla {
         background-color: $color-amarillo;
     }
 
-    // Variante pegada a la portada y sin aire abajo (la sección siguiente ya trae el suyo)
     &--pegada {
         padding-top: $espaciado * 2;
         padding-bottom: 0;
     }
 }
 
-// Título de cada sección: h2 + bajada, centrado
 .encabezado-seccion {
     max-width: $ancho-texto;
     margin: 0 auto $espaciado * 2;
     text-align: center;
 
-    // Variante alineada a la izquierda, para que no todas las secciones abran igual
     &--izquierda {
         margin-left: 0;
         text-align: left;
     }
 }
 
-// Portada de las páginas internas: la guirnalda arriba, el título y, al costado,
-// una foto impresa de esa página. Abajo, el borde festoneado como la crema de las tortas.
 .page-hero {
     @include borde-festoneado($color-amarillo);
     padding-bottom: $espacio-seccion;
     background-color: $color-amarillo;
     text-align: center;
-    // clip y no hidden: corta lo que asome a los costados pero deja ver el festón de abajo
     overflow-x: clip;
 
     .container {
@@ -66,7 +57,6 @@
     }
 }
 
-// Variante con foto: en desktop, texto a la izquierda y la foto a la derecha
 .page-hero-grilla {
     display: grid;
     gap: $espaciado * 2;
@@ -88,7 +78,6 @@
 
 .page-hero-foto {
     position: relative;
-    // En celular, chica (no tiene que empujar el contenido hacia abajo)
     width: min(190px, 52%);
     margin: 0 auto;
     transform: rotate(3deg);

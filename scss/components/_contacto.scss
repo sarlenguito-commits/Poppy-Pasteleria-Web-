@@ -2,7 +2,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Contacto: WhatsApp es el canal principal y va grande; el resto, como datos al costado
 .contacto {
     display: grid;
     gap: $espaciado * 2;
@@ -14,7 +13,6 @@
     }
 }
 
-// Etiqueta grande, como los botones: esquinas casi rectas, costura punteada y sombra corrida
 .contacto-whatsapp {
     position: relative;
     padding: $espaciado * 2;
@@ -44,13 +42,12 @@
     }
 
     p {
-        color: rgba(255, 251, 239, 0.85); // crema al 85%: 10:1 sobre el petróleo
+        color: rgba(255, 251, 239, 0.85);
         font-size: 1.1rem;
         margin-bottom: $espaciado * 1.5;
     }
 }
 
-// Lista de datos: <dt> el nombre, <dd> el dato
 .contacto-datos {
     margin: 0;
 

@@ -1,13 +1,9 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Botones con forma de etiqueta, como la de las bolsitas de galletitas y Chocopop:
-// esquinas casi rectas y sombra dura corrida, como un sticker pegado.
-// Al hacer clic se "aprieta": se corre hacia la sombra y la sombra se achica.
 .boton {
     position: relative;
     @include flex(row, $justify: center, $align: center, $gap: 8px);
-    // inline-flex: el botón mide lo que su texto, no todo el ancho
     display: inline-flex;
     font-family: $fuente-texto;
     font-weight: 700;
@@ -18,7 +14,6 @@
     box-shadow: 4px 4px 0 $color-petroleo;
     text-decoration: none;
     cursor: pointer;
-    // "translate" y no "transform", igual que en las tarjetas (AOS usa transform)
     transition: background-color $transicion, border-color $transicion,
         color $transicion, translate $transicion, box-shadow $transicion;
 
@@ -36,7 +31,6 @@
         font-size: 1.2em;
     }
 
-    // Verde: la acción principal (pedir). Lleva la "costura" punteada de la etiqueta.
     &--primario {
         @include boton($color-verde, $color-blanco);
 
@@ -50,7 +44,6 @@
         }
     }
 
-    // Rosa (el de las tortas): pedir por Instagram. Misma etiqueta con costura que el de WhatsApp.
     &--instagram {
         @include boton($color-rosa, $color-blanco);
 
@@ -64,12 +57,10 @@
         }
     }
 
-    // Con borde: la acción secundaria (ver productos)
     &--secundario {
         @include boton($color-blanco, $color-petroleo, $color-petroleo);
     }
 
-    // Petróleo: para fondos amarillos donde el verde se pierde (su sombra va en verde hoja)
     &--oscuro {
         @include boton($color-petroleo, $color-crema);
         box-shadow: 4px 4px 0 $color-verde-hoja;
@@ -79,14 +70,12 @@
         }
     }
 
-    // Más chico, para el menú
     &--chico {
         font-size: 0.95rem;
         padding: 11px 18px;
     }
 }
 
-// Grupo de botones que en mobile se apilan y desde tablet van en fila
 .grupo-botones {
     @include flex(column, $gap: 14px);
 

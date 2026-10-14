@@ -3,12 +3,9 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Guirnalda de banderines, como la que Ailu pone en sus tortas.
-// Es el detalle propio del sitio: va arriba de cada portada y es la única
-// animación que corre sola al cargar (los banderines "se cuelgan" uno tras otro).
 
-$banderines: 14;                          // tienen que coincidir con los <span> del HTML
-$caida: 22px;                             // cuánto baja el hilo en el medio
+$banderines: 14;
+$caida: 22px;
 $ancho-banderin: clamp(20px, 4vw, 52px);
 $alto-banderin: clamp(26px, 4.8vw, 60px);
 $margen-lateral: 3%;
@@ -23,8 +20,6 @@ $colores-banderin: ($color-petroleo, $color-blanco, $color-verde-hoja, $color-am
     padding: 10px $margen-lateral 0;
     pointer-events: none;
 
-    // El hilo: una curva SVG de punta a punta (del primer banderín al último).
-    // Una curva Bézier cuadrática es una parábola, la misma que siguen los banderines abajo.
     &::before {
         content: "";
         position: absolute;
@@ -44,18 +39,15 @@ $colores-banderin: ($color-petroleo, $color-blanco, $color-verde-hoja, $color-am
         transform-origin: top center;
     }
 
-    // Variante para fondos oscuros (footer): hilo crema, banderines claros y quieta,
-    // así la única animación que corre sola sigue siendo la de la portada.
     &--clara {
         &::before {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 24' preserveAspectRatio='none'%3E%3Cpath d='M0 1 Q50 45 100 1' fill='none' stroke='%23FFFBEF' stroke-width='2' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
         }
     }
 
-    // Cada banderín: su color, su altura sobre la curva y su retraso al colgarse
     @for $i from 1 through $banderines {
         $medio: math.div($banderines + 1, 2);
-        $distancia: math.div($i - $medio, $medio - 1); // -1 en las puntas, 0 en el medio
+        $distancia: math.div($i - $medio, $medio - 1);
 
         span:nth-child(#{$i}) {
             background-color: list.nth($colores-banderin, ($i - 1) % list.length($colores-banderin) + 1);
@@ -64,8 +56,6 @@ $colores-banderin: ($color-petroleo, $color-blanco, $color-verde-hoja, $color-am
         }
     }
 
-    // En la variante clara: sin animación y los banderines petróleo pasan a amarillo
-    // (va después del @for y con la misma especificidad, para ganarle)
     &--clara span:nth-child(n) {
         animation: none;
     }

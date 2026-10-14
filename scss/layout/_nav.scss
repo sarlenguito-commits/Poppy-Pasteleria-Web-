@@ -1,7 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Navbar de Bootstrap con la identidad de Poppy
 .navbar-poppy {
     padding: 8px 0;
 
@@ -15,12 +14,10 @@
         }
     }
 
-    // El ícono hamburguesa de Bootstrap es un SVG gris: se redibuja en petróleo
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23213943' stroke-linecap='round' stroke-width='2.5' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
     }
 
-    // En mobile el menú desplegado ocupa todo el ancho, con aire entre links
     .navbar-collapse {
         padding: 12px 0;
 
@@ -32,15 +29,12 @@
     .navbar-nav {
         gap: 4px;
 
-        // El menú queda centrado entre el logo y el botón de WhatsApp
         @include desde(menu) {
             margin: 0 auto;
             gap: 6px;
         }
     }
 
-    // Los links llevan abajo una línea ondulada, como dibujada a mano (SVG).
-    // Al pasar el mouse aparece; en la página actual queda fija y en verde (6:1).
     .nav-link {
         font-family: $fuente-texto;
         font-weight: 500;
@@ -65,7 +59,6 @@
             background-size: calc(100% - 24px) 8px;
         }
 
-        // Entre 992 y 1199 px entran justo el logo, los 5 links y los 2 botones: menos aire entre links
         @media (min-width: 992px) and (max-width: 1199.98px) {
             padding-left: 8px;
             padding-right: 8px;
@@ -73,7 +66,6 @@
         }
     }
 
-    // Botón de WhatsApp: abajo del menú en mobile, a la derecha en desktop
     .boton {
         margin-top: 8px;
 
@@ -81,7 +73,6 @@
             margin-top: 0;
         }
 
-        // El de Instagram, al lado del de WhatsApp
         & + .boton {
             margin-left: 10px;
         }

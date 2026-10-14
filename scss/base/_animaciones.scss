@@ -1,7 +1,4 @@
-// Animaciones nativas con @keyframes.
-// Se aplican con el mixin animar() de utilities/_mixins.scss.
 
-// El logo del menú aparece creciendo al cargar la página.
 @keyframes aparecer-logo {
     from {
         opacity: 0;
@@ -14,7 +11,6 @@
     }
 }
 
-// Balanceo corto del logo al pasar el mouse, como una colita que se mueve.
 @keyframes balanceo {
     0%,
     100% {
@@ -30,10 +26,6 @@
     }
 }
 
-// Animación propia para AOS ("revelar"): la foto aparece chica, borrosa y sin color, y crece
-// hasta quedar nítida, como una foto instantánea que se revela. Reemplaza el zoom y el fade-up de AOS.
-// AOS agrega la clase .aos-animate cuando la foto entra en pantalla; si la persona pidió
-// reducir el movimiento, AOS no se inicia y saca los data-aos, así que esto no se aplica.
 [data-aos="revelar"] {
     opacity: 0;
     transform: scale(0.88);
@@ -47,7 +39,6 @@
     }
 }
 
-// Cada banderín de la guirnalda baja desde el hilo y se hamaca un poco hasta quedar quieto.
 @keyframes colgar {
     0% {
         transform: scaleY(0);

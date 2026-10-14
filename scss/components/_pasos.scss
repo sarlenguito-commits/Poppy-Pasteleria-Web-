@@ -2,9 +2,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// "Cómo pedir" como un ticket de pedido: un papel crema con el borde de arriba y de abajo
-// troquelado, y cada paso como un renglón separado por una línea punteada.
-// La sombra va en el envoltorio (.ticket) porque la máscara del troquelado la recortaría.
 .ticket {
     max-width: 680px;
     margin: 0 auto;
@@ -12,14 +9,11 @@
     rotate: 0.6deg;
 }
 
-// Es una secuencia real, por eso lleva números: los pone CSS con un contador,
-// así si se agrega o se saca un paso, se acomodan solos.
 .pasos {
     @extend %lista-limpia;
     counter-reset: paso;
     padding: $espaciado * 2 $espaciado * 1.5;
     background-color: $color-crema;
-    // Troquelado: medialunas transparentes cada 22 px arriba y abajo
     $troquel: radial-gradient(circle at 11px 0, transparent 7px, #000 7.5px);
     -webkit-mask: $troquel top / 22px 51% repeat-x,
         radial-gradient(circle at 11px 100%, transparent 7px, #000 7.5px) bottom / 22px 51% repeat-x;

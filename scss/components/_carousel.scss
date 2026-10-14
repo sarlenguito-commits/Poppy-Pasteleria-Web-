@@ -1,7 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Carousel de Bootstrap con los trabajos (fotos verticales 4:5): una foto impresa con marco blanco
 .carousel-poppy {
     max-width: 520px;
     margin: 0 auto;
@@ -18,7 +17,6 @@
         object-fit: cover;
     }
 
-    // Recuadro chico abajo, para no tapar la torta
     .carousel-caption {
         left: 0;
         right: 0;
@@ -44,7 +42,6 @@
         opacity: 1;
     }
 
-    // Flechas cuadradas con sombra dura, como los botones etiqueta
     .carousel-control-prev-icon,
     .carousel-control-next-icon {
         width: 44px;

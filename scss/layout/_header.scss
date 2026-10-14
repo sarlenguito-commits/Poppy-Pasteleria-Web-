@@ -1,15 +1,13 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Header fijo arriba (clase sticky-top de Bootstrap en el HTML).
-// Fondo blanco semitransparente con desenfoque: el contenido se intuye al pasar por debajo.
 .site-header {
     background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid $color-borde;
 }
 
-// Logo horizontal (la palabra POPPY) a la izquierda del menú
+// Logo horizontal
 .marca {
     @include flex(row, $align: center);
     padding: 6px 0;
@@ -19,9 +17,6 @@
         width: auto;
         @include animar(aparecer-logo);
 
-        // El balanceo se suma a la animación de entrada en vez de reemplazarla.
-        // Si se reemplazara, al sacar el mouse la entrada se volvería a reproducir
-        // y el logo desaparecería y aparecería de nuevo.
         @media (prefers-reduced-motion: no-preference) {
             &:hover {
                 animation: aparecer-logo $duracion-animacion ease-out both,

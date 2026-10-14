@@ -1,7 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Paytone One para los títulos grandes (h1 y h2) y Karla para todo lo demás.
 h1,
 h2,
 h3,
@@ -11,7 +10,6 @@ h4 {
     margin: 0 0 0.5em;
 }
 
-// Paytone One tiene un solo grosor (400): si se le pidiera negrita, el navegador la engordaría a la fuerza
 h1,
 h2 {
     font-family: $fuente-titulos;
@@ -19,7 +17,6 @@ h2 {
     letter-spacing: -0.005em;
 }
 
-// clamp(mínimo, ideal, máximo): el tamaño crece con el ancho de la pantalla
 h1 {
     font-size: clamp(2.3rem, 6vw, 4rem);
 }

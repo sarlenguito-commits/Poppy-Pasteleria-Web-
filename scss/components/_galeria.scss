@@ -1,8 +1,6 @@
 @use "../utilities/variables" as *;
 @use "../utilities/mixins" as *;
 
-// Galería tipo mosaico: en mobile 2 columnas, en desktop 4,
-// con la primera foto el doble de grande (ocupa 2 columnas y 2 filas).
 .galeria {
     display: grid;
     gap: 12px;
@@ -18,8 +16,6 @@
         gap: $espaciado;
     }
 
-    // Fotos impresas con marco blanco, cada una apenas girada para un lado distinto.
-    // Se usa la propiedad "rotate" (no "transform") porque AOS anima la entrada con transform.
     figure {
         position: relative;
         margin: 0;
@@ -55,7 +51,6 @@
         transition: transform $transicion-lenta;
     }
 
-    // Nombre de la mascota en una etiquetita blanca pegada en la esquina, como el cartel del gorrito
     figcaption {
         position: absolute;
         left: 10px;

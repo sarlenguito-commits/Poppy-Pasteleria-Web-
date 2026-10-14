@@ -2,7 +2,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Bloque foto + texto. En desktop van lado a lado; con --invertido la foto pasa a la derecha.
 .destacado {
     display: grid;
     gap: $espaciado * 2;
@@ -17,7 +16,6 @@
         }
     }
 
-    // Separación entre bloques seguidos (productos)
     & + & {
         margin-top: $espacio-seccion;
 
@@ -27,9 +25,6 @@
     }
 }
 
-// Una foto sola o dos superpuestas (la segunda más chica, corrida hacia abajo),
-// impresas y apenas giradas. Sin cinta a propósito: la cinta queda solo en las portadas
-// y en la tarjeta de cierre, para que no se repita en cada bloque.
 .destacado-fotos {
     position: relative;
     max-width: 460px;
@@ -46,8 +41,6 @@
         position: absolute;
         width: 46%;
         height: auto;
-        // En mobile queda adentro del ancho (si asoma, aparece scroll horizontal);
-        // desde tablet hay lugar para que se corra un poco hacia afuera.
         right: 8px;
         bottom: -28px;
         border-width: 6px;
@@ -60,8 +53,6 @@
     }
 }
 
-// Lista de lo que incluye cada producto o servicio: cada ítem lleva una huellita
-// (dibujada en SVG) en vez de la tilde en círculo de siempre. Giran un poco, como pisadas.
 .lista-check {
     @extend %lista-limpia;
     @include flex(column, $gap: 10px);
@@ -91,14 +82,12 @@
     }
 }
 
-// Accesos rápidos a cada categoría (links internos con #)
 .chips {
     @extend %lista-limpia;
     @include flex(row, $justify: center, $gap: 12px);
     flex-wrap: wrap;
     margin-top: $espaciado * 1.5;
 
-    // Mismo estilo etiqueta que los botones, en chico
     a {
         display: inline-block;
         padding: 8px 16px;

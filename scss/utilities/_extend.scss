@@ -1,8 +1,5 @@
-// Placeholders (%): bloques de estilo fijos que se repiten.
-// Con @extend, el CSS se escribe una sola vez y se agrupan los selectores.
 @use "variables" as *;
 
-// Foto impresa: casi sin redondeo, con marco blanco, como las que se pegan en la heladera
 %foto-impresa {
     width: 100%;
     max-width: none;
@@ -13,8 +10,6 @@
     box-shadow: $sombra-suave, 0 1px 3px rgba(33, 57, 67, 0.12);
 }
 
-// Pedazo de cinta adhesiva para pegar una foto (se usa en un ::before del contenedor).
-// Los bordes cortados en zigzag con clip-path imitan la cinta cortada con la mano.
 %cinta {
     content: "";
     position: absolute;
@@ -31,7 +26,6 @@
     pointer-events: none;
 }
 
-// Links verdes con subrayado al pasar el mouse
 %link-acento {
     color: $color-verde;
     font-weight: 700;
@@ -48,15 +42,12 @@
     }
 }
 
-// Lista sin viñetas ni sangría
 %lista-limpia {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-// Ícono en un "sticker": círculo blanco con borde y la misma sombra dura de los botones,
-// como los stickers troquelados que van en las tortas
 %circulo-icono {
     display: inline-flex;
     align-items: center;

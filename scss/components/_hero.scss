@@ -2,13 +2,10 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Portada del inicio: la guirnalda arriba, el texto a la izquierda
-// y la foto del box de Muna con borde de topper (como los stickers que imprime Ailu)
 .hero {
     @include borde-festoneado($color-amarillo, $gota: 44px);
     padding-bottom: $espacio-seccion;
     background-color: $color-amarillo;
-    // clip y no hidden: corta lo que asome a los costados pero deja ver el festón de abajo
     overflow-x: clip;
 
     @include desde(desktop) {
@@ -42,7 +39,6 @@
     }
 }
 
-// Foto impresa, girada y pegada con cinta
 .hero-foto {
     position: relative;
     max-width: 400px;

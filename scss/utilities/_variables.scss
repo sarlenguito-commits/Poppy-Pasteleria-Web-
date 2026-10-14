@@ -1,31 +1,23 @@
-// ============================================
-// Variables: la identidad de Poppy sale del logo
-// (azul petróleo de la palabra POPPY, verde de la hojita y amarillo acuarela)
-// ============================================
 
 // Colores de marca
-$color-petroleo: #213943;        // texto y títulos (12,1:1 sobre el blanco)
-$color-petroleo-suave: #4B6169;  // texto secundario (6,5:1 sobre el blanco)
-$color-verde-hoja: #80A858;      // solo decoración: como texto no llega al contraste mínimo
-$color-verde: #3F6B2A;           // botones y links (texto blanco encima: 6,3:1)
-$color-verde-claro: #EAF2DF;     // fondos de íconos y estados activos
-$color-amarillo: #FFF3A0;        // bloques destacados, como la acuarela del logo
-$color-amarillo-fuerte: #F7D74A; // detalles chicos (estrellas, subrayados)
-$color-rosa: #B23A67;            // botón de Instagram: el rosa de las tortas (texto blanco encima: 5,7:1)
-$color-crema: #FFFBEF;           // texto claro sobre el petróleo (footer y WhatsApp)
+$color-petroleo: #213943;
+$color-petroleo-suave: #4B6169;
+$color-verde-hoja: #80A858;
+$color-verde: #3F6B2A;
+$color-verde-claro: #EAF2DF;
+$color-amarillo: #FFF3A0;
+$color-amarillo-fuerte: #F7D74A;
+$color-rosa: #B23A67;
+$color-crema: #FFFBEF;
 $color-blanco: #FFFFFF;
 
-// Usos (así cada partial habla de "fondo" o "texto" y no de un color puntual)
-// El fondo es blanco, como el del logo: el amarillo queda para los bloques que destacan.
+// Usos
 $color-fondo: $color-blanco;
 $color-texto: $color-petroleo;
 $color-texto-suave: $color-petroleo-suave;
 $color-borde: rgba(33, 57, 67, 0.12);
 
 // Tipografías
-// Paytone One: geométrica y gruesa, con la "o" redonda, como la palabra POPPY del logo.
-// Tiene un solo grosor: va solo en h1, h2, el lema del footer y los números de los pasos.
-// Karla: texto, menú, botones y h3; distinta de la de títulos a propósito.
 $fuente-titulos: 'Paytone One', 'Arial Rounded MT Bold', sans-serif;
 $fuente-texto: 'Karla', sans-serif;
 
@@ -35,7 +27,7 @@ $radio-borde: 20px;
 $radio-grande: 32px;
 $radio-pildora: 999px;
 
-// Sombras (suaves, con el petróleo de la marca en vez de negro)
+// Sombras
 $sombra-suave: 0 6px 20px rgba(33, 57, 67, 0.08);
 $sombra-elevada: 0 14px 34px rgba(33, 57, 67, 0.16);
 
@@ -49,10 +41,8 @@ $ancho-texto: 62ch;
 $transicion: 0.2s ease;
 $transicion-lenta: 0.4s ease;
 
-// Breakpoints mobile-first: la base (sin media query) es mobile.
 $breakpoints: (
     tablet: 768px,
-    // Donde Bootstrap despliega el menú (navbar-expand-lg): las reglas del menú usan este
     menu: 992px,
     desktop: 1024px
 );

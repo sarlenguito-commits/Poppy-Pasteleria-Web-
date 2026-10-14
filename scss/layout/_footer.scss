@@ -2,9 +2,6 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Footer en azul petróleo, en una sola columna centrada: la guirnalda arriba (clara),
-// el logo, el lema, el botón de pedir, los links y los datos del negocio.
-// El sitio cierra igual que abre, sin las tres columnas de plantilla.
 .site-footer {
     background-color: $color-petroleo;
     color: $color-crema;
@@ -13,7 +10,7 @@
     text-align: center;
 
     p {
-        color: rgba(255, 251, 239, 0.85); // crema al 85%: 10:1 sobre el petróleo
+        color: rgba(255, 251, 239, 0.85);
         font-size: 0.98rem;
         margin: 0;
     }
@@ -31,7 +28,6 @@
         }
     }
 
-    // <address> de Bootstrap trae margen y cursiva: se limpia
     address {
         @include flex(column, $gap: 4px);
         margin: 0;
@@ -51,8 +47,6 @@
     }
 }
 
-// El lema en la letra de los títulos: es la frase de la marca, no un título de sección
-// (dentro de .site-footer & para ganarle a la regla general de los <p> del footer)
 .footer-lema {
     .site-footer & {
         font-family: $fuente-titulos;

@@ -1,7 +1,5 @@
 @use "../utilities/variables" as *;
 
-// Preguntas frecuentes con el accordion de Bootstrap.
-// Bootstrap 5.3 expone sus colores como variables CSS (--bs-...): se pisan con los de Poppy.
 .acordeon-poppy {
     --bs-accordion-bg: #{$color-blanco};
     --bs-accordion-color: #{$color-texto-suave};
@@ -19,7 +17,6 @@
         margin-bottom: 12px;
         border-radius: $radio-borde;
         overflow: hidden;
-        // Bootstrap le saca el borde de arriba a los items siguientes: se repone
         border-top: 1px solid $color-borde;
     }
 

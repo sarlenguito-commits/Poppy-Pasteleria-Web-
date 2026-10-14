@@ -9,7 +9,6 @@
 
 html {
     scroll-behavior: smooth;
-    // Los links internos (#tortas, #contenido) no quedan tapados por el menú fijo
     scroll-padding-top: 90px;
 
     @media (prefers-reduced-motion: reduce) {
@@ -24,7 +23,6 @@ body {
     line-height: 1.7;
     background-color: $color-fondo;
     color: $color-texto;
-    // Evita el scroll horizontal por las decoraciones que asoman fuera de las secciones
     overflow-x: hidden;
 }
 
@@ -39,14 +37,12 @@ img {
     color: $color-petroleo;
 }
 
-// Foco bien visible al navegar con teclado (no aparece al hacer clic con el mouse)
 :focus-visible {
     outline: 3px solid $color-verde;
     outline-offset: 3px;
     border-radius: 4px;
 }
 
-// Link "Saltar al contenido": invisible hasta que se llega con Tab
 .saltar-contenido {
     position: absolute;
     top: -100px;

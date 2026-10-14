@@ -2,11 +2,8 @@
 @use "../utilities/mixins" as *;
 @use "../utilities/extend";
 
-// Lo que distingue a Poppy, en una línea: ícono + título corto + una frase.
-// Sin cajas: es información de apoyo, no tiene que competir con los productos.
 .beneficios {
     @extend %lista-limpia;
-    // Una columna en celular (en dos, "Personalizados" no entraba a 320 px), dos en tablet y cuatro en desktop
     @include grilla($tablet: 2, $desktop: 4, $gap: $espaciado * 1.5 $espaciado);
 
     li {
@@ -16,7 +13,6 @@
         align-items: start;
     }
 
-    // El ícono, en el mismo sticker que servicios y valores
     .bi {
         @extend %circulo-icono;
         grid-row: span 2;
